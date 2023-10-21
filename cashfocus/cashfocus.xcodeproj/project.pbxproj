@@ -15,12 +15,13 @@
 		FA15C9A72AE1E38D004E1866 /* cashfocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9A62AE1E38D004E1866 /* cashfocusTests.swift */; };
 		FA15C9B12AE1E38D004E1866 /* cashfocusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9B02AE1E38D004E1866 /* cashfocusUITests.swift */; };
 		FA15C9B32AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9B22AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift */; };
-		FA4D89022AE2420200795DA7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D89012AE2420200795DA7 /* LoginVC.swift */; };
+		FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D89012AE2420200795DA7 /* HomeViewController.swift */; };
 		FAEAE7622AE445DB00E01977 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75D2AE445DB00E01977 /* Nunito-Medium.ttf */; };
 		FAEAE7632AE445DB00E01977 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75E2AE445DB00E01977 /* Nunito-Regular.ttf */; };
 		FAEAE7642AE445DB00E01977 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */; };
 		FAEAE7652AE445DB00E01977 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE7602AE445DB00E01977 /* Nunito-Light.ttf */; };
 		FAEAE7662AE445DB00E01977 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE7612AE445DB00E01977 /* Nunito-Bold.ttf */; };
+		FAEAE7692AE455BE00E01977 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEAE7682AE455BE00E01977 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +54,13 @@
 		FA15C9AC2AE1E38D004E1866 /* cashfocusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cashfocusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA15C9B02AE1E38D004E1866 /* cashfocusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cashfocusUITests.swift; sourceTree = "<group>"; };
 		FA15C9B22AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cashfocusUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FA4D89012AE2420200795DA7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		FA4D89012AE2420200795DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FAEAE75D2AE445DB00E01977 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
 		FAEAE75E2AE445DB00E01977 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
 		FAEAE7602AE445DB00E01977 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		FAEAE7612AE445DB00E01977 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		FAEAE7682AE455BE00E01977 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		FA15C98B2AE1E38C004E1866 /* cashfocus */ = {
 			isa = PBXGroup;
 			children = (
+				FAEAE76A2AE455E200E01977 /* Components */,
 				FAF2CCBB2AE1E9BF00D2542D /* Support */,
 				FAF2CCBA2AE1E86C00D2542D /* Utilities */,
 				FAF2CCB92AE1E86400D2542D /* Models */,
@@ -135,12 +138,13 @@
 			path = cashfocusUITests;
 			sourceTree = "<group>";
 		};
-		FA4D89002AE241D200795DA7 /* Login */ = {
+		FA4D89002AE241D200795DA7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				FA4D89012AE2420200795DA7 /* LoginVC.swift */,
+				FA4D89012AE2420200795DA7 /* HomeViewController.swift */,
+				FAEAE7682AE455BE00E01977 /* HomeViewModel.swift */,
 			);
-			path = Login;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		FAEAE75C2AE445A500E01977 /* Fonts */ = {
@@ -155,10 +159,17 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		FAEAE76A2AE455E200E01977 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		FAF2CCB82AE1E85A00D2542D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				FA4D89002AE241D200795DA7 /* Login */,
+				FA4D89002AE241D200795DA7 /* Home */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -327,8 +338,9 @@
 			files = (
 				FA15C9972AE1E38C004E1866 /* cashfocus.xcdatamodeld in Sources */,
 				FA15C98D2AE1E38C004E1866 /* AppDelegate.swift in Sources */,
-				FA4D89022AE2420200795DA7 /* LoginVC.swift in Sources */,
+				FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */,
 				FA15C98F2AE1E38C004E1866 /* SceneDelegate.swift in Sources */,
+				FAEAE7692AE455BE00E01977 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +517,7 @@
 				DEVELOPMENT_TEAM = 8GD4P7SDHD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cashfocus/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "CashFocus - DEV";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -516,6 +529,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leongdev.cashfocus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -532,6 +548,7 @@
 				DEVELOPMENT_TEAM = 8GD4P7SDHD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cashfocus/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CashFocus;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -543,6 +560,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.leongdev.cashfocus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

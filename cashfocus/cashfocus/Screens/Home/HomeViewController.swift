@@ -7,10 +7,15 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .systemRed
+    setup()
   }
 }
 
+private extension HomeViewController {
+  func setup() {
+    view.backgroundColor = .systemBackground
+  }
+}
