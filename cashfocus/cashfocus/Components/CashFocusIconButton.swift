@@ -12,12 +12,12 @@ class CashFocusIconButton: UIButton {
     super.init(frame: frame)
   }
   
-  init(imageName: String, color: UIColor, fontSize: CGFloat ) {
+  init(iconName: String, color: UIColor, fontSize: CGFloat ) {
     super.init(frame: .zero)
     self.setImage(
       UIImage(
-        systemName: imageName,
-        withConfiguration: 
+        systemName: iconName,
+        withConfiguration:
           UIImage.SymbolConfiguration(
             font: UIFont.systemFont(ofSize: fontSize)
           )), for: .normal)
@@ -38,7 +38,7 @@ private extension CashFocusIconButton {
 
 #Preview {
   let button = CashFocusIconButton(
-    imageName: "gearshape.fill",
+    iconName: CustomIconButtons.elipseCircle.rawValue,
     color: .systemGreen,
     fontSize: 30)
   return button

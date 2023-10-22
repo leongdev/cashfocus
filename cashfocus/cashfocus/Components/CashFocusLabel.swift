@@ -13,10 +13,11 @@ class CashFocusLabel: UILabel {
     setup()
   }
   
-  init(text: String, textAlignment: NSTextAlignment) {
+  init(text: String, textAlignment: NSTextAlignment, font: String, size: CGFloat) {
     super.init(frame: .zero)
     self.text = text
     self.textAlignment = textAlignment
+    self.font = UIFont(name: font, size: size)
     setup()
   }
   
@@ -27,7 +28,6 @@ class CashFocusLabel: UILabel {
 
 private extension CashFocusLabel {
   func setup() {
-    self.font = UIFont(name: "Nunito-Bold", size: 25)
     self.textColor = .label
     self.adjustsFontSizeToFitWidth = true
     self.minimumScaleFactor = 1
@@ -37,6 +37,11 @@ private extension CashFocusLabel {
 }
 
 #Preview {
-  let label = CashFocusLabel(text: "Hello! 🤑", textAlignment: .left)
+  let label = CashFocusLabel(
+    text: "Hello! 🤑",
+    textAlignment: .left,
+    font: "Nunito-Bold",
+    size: 25
+  )
   return label
 }
