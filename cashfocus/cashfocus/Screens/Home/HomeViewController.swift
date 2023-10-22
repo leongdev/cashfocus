@@ -19,3 +19,8 @@ private extension HomeViewController {
     view.backgroundColor = .systemBackground
   }
 }
+
+
+#Preview {
+  HomeViewController()
+}
