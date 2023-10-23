@@ -9,10 +9,8 @@ import UIKit
 
 class CashFocusHeader: UIView {
   
-  let spacing: CGFloat = 22
-  
   private lazy var actionButton = CashFocusIconButton(
-    iconName: CustomIconButtons.gearshapeFill.rawValue,
+    iconName: IconButtons.gearshapeFill.rawValue,
     color: .systemGreen,
     fontSize: 20
   )
@@ -54,8 +52,8 @@ private extension CashFocusHeader {
     NSLayoutConstraint.activate([
       stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
       stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-      stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: spacing),
-      stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -spacing),
+      stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+      stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
     ])
   }
 }

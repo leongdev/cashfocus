@@ -10,6 +10,7 @@ import UIKit
 class CashFocusIconButton: UIButton {
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setup()
   }
   
   init(iconName: String, color: UIColor, fontSize: CGFloat ) {
@@ -22,6 +23,7 @@ class CashFocusIconButton: UIButton {
             font: UIFont.systemFont(ofSize: fontSize)
           )), for: .normal)
     self.tintColor = color
+    setup()
   }
 
   required init?(coder: NSCoder) {
@@ -38,7 +40,7 @@ private extension CashFocusIconButton {
 
 #Preview {
   let button = CashFocusIconButton(
-    iconName: CustomIconButtons.elipseCircle.rawValue,
+    iconName: IconButtons.elipseCircle.rawValue,
     color: .systemGreen,
     fontSize: 30)
   return button
