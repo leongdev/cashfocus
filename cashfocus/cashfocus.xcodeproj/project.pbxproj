@@ -23,6 +23,10 @@
 		FAE3E79C2AE5C6DF005ECF7B /* CashFocusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */; };
 		FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */; };
 		FAE3E7A12AE5DB54005ECF7B /* CashFocusButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */; };
+		FAE3E7A32AE61BA7005ECF7B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A22AE61BA7005ECF7B /* HomeViewModel.swift */; };
+		FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A42AE62453005ECF7B /* Project.swift */; };
+		FAE3E7A82AE62900005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A62AE62900005ECF7B /* ProjectItem+CoreDataClass.swift */; };
+		FAE3E7A92AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A72AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift */; };
 		FAEAE7622AE445DB00E01977 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75D2AE445DB00E01977 /* Nunito-Medium.ttf */; };
 		FAEAE7632AE445DB00E01977 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75E2AE445DB00E01977 /* Nunito-Regular.ttf */; };
 		FAEAE7642AE445DB00E01977 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */; };
@@ -68,6 +72,10 @@
 		FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusButton.swift; sourceTree = "<group>"; };
 		FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CashFocusButton+Ext.swift"; sourceTree = "<group>"; };
+		FAE3E7A22AE61BA7005ECF7B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FAE3E7A42AE62453005ECF7B /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FAE3E7A62AE62900005ECF7B /* ProjectItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FAE3E7A72AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FAEAE75D2AE445DB00E01977 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
 		FAEAE75E2AE445DB00E01977 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
@@ -123,6 +131,7 @@
 		FA15C98B2AE1E38C004E1866 /* cashfocus */ = {
 			isa = PBXGroup;
 			children = (
+				FAE3E7AA2AE6290F005ECF7B /* CoreData */,
 				FA25B80D2AE4E63D001307E8 /* Components */,
 				FAF2CCBB2AE1E9BF00D2542D /* Support */,
 				FAF2CCBA2AE1E86C00D2542D /* Utilities */,
@@ -165,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4D89012AE2420200795DA7 /* HomeViewController.swift */,
+				FAE3E7A22AE61BA7005ECF7B /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -176,6 +186,24 @@
 				FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAE3E7AA2AE6290F005ECF7B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FAE3E7AB2AE62934005ECF7B /* ProjectItem */,
+				FA15C9952AE1E38C004E1866 /* cashfocus.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FAE3E7AB2AE62934005ECF7B /* ProjectItem */ = {
+			isa = PBXGroup;
+			children = (
+				FAE3E7A62AE62900005ECF7B /* ProjectItem+CoreDataClass.swift */,
+				FAE3E7A72AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift */,
+			);
+			path = ProjectItem;
 			sourceTree = "<group>";
 		};
 		FAEAE75C2AE445A500E01977 /* Fonts */ = {
@@ -202,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				FAE3E7992AE5B1D7005ECF7B /* IconButtons.swift */,
+				FAE3E7A42AE62453005ECF7B /* Project.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,7 +251,6 @@
 				FA15C98E2AE1E38C004E1866 /* SceneDelegate.swift */,
 				FA15C9982AE1E38D004E1866 /* Assets.xcassets */,
 				FA15C99A2AE1E38D004E1866 /* LaunchScreen.storyboard */,
-				FA15C9952AE1E38C004E1866 /* cashfocus.xcdatamodeld */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -367,8 +395,12 @@
 				FA25B80F2AE4E699001307E8 /* CashFocusLabel.swift in Sources */,
 				FA25B8112AE4EA3F001307E8 /* CashFocusIconButton.swift in Sources */,
 				FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */,
+				FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */,
+				FAE3E7A82AE62900005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */,
 				FA15C98D2AE1E38C004E1866 /* AppDelegate.swift in Sources */,
 				FAE3E79A2AE5B1D7005ECF7B /* IconButtons.swift in Sources */,
+				FAE3E7A92AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */,
+				FAE3E7A32AE61BA7005ECF7B /* HomeViewModel.swift in Sources */,
 				FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */,
 				FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */,
 				FA15C98F2AE1E38C004E1866 /* SceneDelegate.swift in Sources */,

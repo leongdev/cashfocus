@@ -9,7 +9,7 @@ import UIKit
 
 class CashFocusHeader: UIView {
   
-  private lazy var actionButton = CashFocusIconButton(
+  lazy var button = CashFocusIconButton(
     iconName: IconButtons.gearshapeFill.rawValue,
     color: .systemGreen,
     fontSize: 20
@@ -26,12 +26,16 @@ class CashFocusHeader: UIView {
     let stack = UIStackView()
     stack.translatesAutoresizingMaskIntoConstraints = false
     stack.axis = .horizontal
-
     return stack
   }()
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setup()
+  }
+  
+  init() {
+    super.init(frame: .zero)
     setup()
   }
   
@@ -47,7 +51,7 @@ private extension CashFocusHeader {
     
     self.addSubview(stackView)
     stackView.addArrangedSubview(title)
-    stackView.addArrangedSubview(actionButton)
+    stackView.addArrangedSubview(button)
 
     NSLayoutConstraint.activate([
       stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),

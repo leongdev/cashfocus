@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
+  private let viewModel = HomeViewModel()
   let spacing:CGFloat = 20
   
   private lazy var header = CashFocusHeader()
@@ -25,26 +26,35 @@ class HomeViewController: UIViewController {
     setup()
   }
   
-  @objc func onPressButton() {
-    addProjectButton.startAnimationPressButton()
+  private func bind() {
+    
   }
+  
+  @objc func onPressAddNewProject() {
+    print("NEW PROJECT")
+  }
+  
+  @objc func onPressSettings() {
+    print("SETTINGS")
+  } 
 }
 
 private extension HomeViewController {
   func setup() {
     view.backgroundColor = .systemBackground
-
     view.addSubview(header)
     view.addSubview(addProjectButton)
     
-    addProjectButton.addTarget(self, action: #selector(onPressButton), for: [.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
+    addProjectButton.startAnimationPressButton()
+    addProjectButton.addTarget(self, action: #selector(onPressAddNewProject), for: .touchUpInside)
+    header.button.addTarget(self, action: #selector(onPressSettings), for: .touchUpInside)
     
     NSLayoutConstraint.activate([
       header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: spacing),
       header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -spacing),
       header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-      header.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      
+      header.heightAnchor.constraint(equalToConstant: 30),
+
       addProjectButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: spacing),
       addProjectButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -spacing),
       addProjectButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
