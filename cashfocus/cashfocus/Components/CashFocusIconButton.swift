@@ -40,7 +40,7 @@ private extension CashFocusIconButton {
 
 #Preview {
   let button = CashFocusIconButton(
-    iconName: IconButtons.elipseCircle.rawValue,
+    iconName: Icons.elipseCircle.rawValue,
     color: .systemGreen,
     fontSize: 30)
   return button

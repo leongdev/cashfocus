@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IconButtons: String {
+enum Icons: String {
   case gearshapeFill = "gearshape.fill"
   case elipseCircle = "ellipsis.circle"
   case plus = "plus"

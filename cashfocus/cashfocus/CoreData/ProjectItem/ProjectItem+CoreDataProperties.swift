@@ -18,9 +18,9 @@ extension ProjectItem {
 
     @NSManaged public var projectName: String?
     @NSManaged public var projectDescription: String?
-    @NSManaged public var projectTime: String?
+    @NSManaged public var projectTime: Float
     @NSManaged public var projectHourlyRate: Float
-    @NSManaged public var createdAt: Date?
+    @NSManaged public var projectCreatedAt: Date?
 
 }
 

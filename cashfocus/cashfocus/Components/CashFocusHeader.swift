@@ -10,7 +10,7 @@ import UIKit
 class CashFocusHeader: UIView {
   
   lazy var button = CashFocusIconButton(
-    iconName: IconButtons.gearshapeFill.rawValue,
+    iconName: Icons.gearshapeFill.rawValue,
     color: .systemGreen,
     fontSize: 20
   )

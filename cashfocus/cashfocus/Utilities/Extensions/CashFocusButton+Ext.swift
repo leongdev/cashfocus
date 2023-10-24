@@ -30,7 +30,7 @@ extension CashFocusButton {
       options: [.curveEaseInOut],
       animations: {
       button.transform = transform
-        button.layer.shadowOffset = CGSize(width: 0.0, height: shadowHeightOffdet)
+      button.layer.shadowOffset = CGSize(width: 0.0, height: shadowHeightOffdet)
     }, completion: nil)
   }
 }

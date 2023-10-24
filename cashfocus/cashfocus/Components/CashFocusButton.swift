@@ -68,7 +68,7 @@ private extension CashFocusButton {
 
 #Preview {
   let button = CashFocusButton(
-    iconName: IconButtons.plus.rawValue,
+    iconName: Icons.plus.rawValue,
     label: "Add new project",
     color: .white,
     fontSize: 20,

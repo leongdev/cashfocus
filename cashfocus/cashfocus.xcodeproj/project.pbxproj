@@ -15,18 +15,22 @@
 		FA15C9A72AE1E38D004E1866 /* cashfocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9A62AE1E38D004E1866 /* cashfocusTests.swift */; };
 		FA15C9B12AE1E38D004E1866 /* cashfocusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9B02AE1E38D004E1866 /* cashfocusUITests.swift */; };
 		FA15C9B32AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9B22AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift */; };
+		FA1FDCF82AE7688600BAEE54 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FDCF72AE7688600BAEE54 /* UIView+Ext.swift */; };
 		FA25B80F2AE4E699001307E8 /* CashFocusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B80E2AE4E699001307E8 /* CashFocusLabel.swift */; };
 		FA25B8112AE4EA3F001307E8 /* CashFocusIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */; };
 		FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */; };
 		FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D89012AE2420200795DA7 /* HomeViewController.swift */; };
-		FAE3E79A2AE5B1D7005ECF7B /* IconButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7992AE5B1D7005ECF7B /* IconButtons.swift */; };
+		FAE3E79A2AE5B1D7005ECF7B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7992AE5B1D7005ECF7B /* Icons.swift */; };
 		FAE3E79C2AE5C6DF005ECF7B /* CashFocusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */; };
 		FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */; };
 		FAE3E7A12AE5DB54005ECF7B /* CashFocusButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */; };
 		FAE3E7A32AE61BA7005ECF7B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A22AE61BA7005ECF7B /* HomeViewModel.swift */; };
 		FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A42AE62453005ECF7B /* Project.swift */; };
-		FAE3E7A82AE62900005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A62AE62900005ECF7B /* ProjectItem+CoreDataClass.swift */; };
-		FAE3E7A92AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A72AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift */; };
+		FAE3E7AE2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7AC2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift */; };
+		FAE3E7AF2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7AD2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift */; };
+		FAE3E7B12AE63CB3005ECF7B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B02AE63CB3005ECF7B /* UITableView+Ext.swift */; };
+		FAE3E7B32AE6407C005ECF7B /* EmptyProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B22AE6407C005ECF7B /* EmptyProjectsView.swift */; };
+		FAE3E7B62AE643E8005ECF7B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B52AE643E8005ECF7B /* Fonts.swift */; };
 		FAEAE7622AE445DB00E01977 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75D2AE445DB00E01977 /* Nunito-Medium.ttf */; };
 		FAEAE7632AE445DB00E01977 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75E2AE445DB00E01977 /* Nunito-Regular.ttf */; };
 		FAEAE7642AE445DB00E01977 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */; };
@@ -64,18 +68,22 @@
 		FA15C9AC2AE1E38D004E1866 /* cashfocusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cashfocusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA15C9B02AE1E38D004E1866 /* cashfocusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cashfocusUITests.swift; sourceTree = "<group>"; };
 		FA15C9B22AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cashfocusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FA1FDCF72AE7688600BAEE54 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		FA25B80E2AE4E699001307E8 /* CashFocusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusLabel.swift; sourceTree = "<group>"; };
 		FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusIconButton.swift; sourceTree = "<group>"; };
 		FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusHeader.swift; sourceTree = "<group>"; };
 		FA4D89012AE2420200795DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		FAE3E7992AE5B1D7005ECF7B /* IconButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtons.swift; sourceTree = "<group>"; };
+		FAE3E7992AE5B1D7005ECF7B /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusButton.swift; sourceTree = "<group>"; };
 		FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CashFocusButton+Ext.swift"; sourceTree = "<group>"; };
 		FAE3E7A22AE61BA7005ECF7B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FAE3E7A42AE62453005ECF7B /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		FAE3E7A62AE62900005ECF7B /* ProjectItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FAE3E7A72AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAE3E7AC2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FAE3E7AD2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAE3E7B02AE63CB3005ECF7B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		FAE3E7B22AE6407C005ECF7B /* EmptyProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyProjectsView.swift; sourceTree = "<group>"; };
+		FAE3E7B52AE643E8005ECF7B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		FAEAE75D2AE445DB00E01977 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
 		FAEAE75E2AE445DB00E01977 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
@@ -166,6 +174,7 @@
 				FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */,
 				FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */,
 				FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */,
+				FAE3E7B22AE6407C005ECF7B /* EmptyProjectsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -184,6 +193,8 @@
 			children = (
 				FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */,
 				FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */,
+				FAE3E7B02AE63CB3005ECF7B /* UITableView+Ext.swift */,
+				FA1FDCF72AE7688600BAEE54 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,10 +211,19 @@
 		FAE3E7AB2AE62934005ECF7B /* ProjectItem */ = {
 			isa = PBXGroup;
 			children = (
-				FAE3E7A62AE62900005ECF7B /* ProjectItem+CoreDataClass.swift */,
-				FAE3E7A72AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift */,
+				FAE3E7AC2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift */,
+				FAE3E7AD2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift */,
 			);
 			path = ProjectItem;
+			sourceTree = "<group>";
+		};
+		FAE3E7B42AE643C9005ECF7B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FAE3E7992AE5B1D7005ECF7B /* Icons.swift */,
+				FAE3E7B52AE643E8005ECF7B /* Fonts.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		FAEAE75C2AE445A500E01977 /* Fonts */ = {
@@ -229,7 +249,6 @@
 		FAF2CCB92AE1E86400D2542D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAE3E7992AE5B1D7005ECF7B /* IconButtons.swift */,
 				FAE3E7A42AE62453005ECF7B /* Project.swift */,
 			);
 			path = Models;
@@ -238,6 +257,7 @@
 		FAF2CCBA2AE1E86C00D2542D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FAE3E7B42AE643C9005ECF7B /* Constants */,
 				FAE3E79D2AE5CE47005ECF7B /* Extensions */,
 			);
 			path = Utilities;
@@ -394,16 +414,20 @@
 				FA15C9972AE1E38C004E1866 /* cashfocus.xcdatamodeld in Sources */,
 				FA25B80F2AE4E699001307E8 /* CashFocusLabel.swift in Sources */,
 				FA25B8112AE4EA3F001307E8 /* CashFocusIconButton.swift in Sources */,
+				FAE3E7AE2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */,
 				FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */,
+				FA1FDCF82AE7688600BAEE54 /* UIView+Ext.swift in Sources */,
 				FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */,
-				FAE3E7A82AE62900005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */,
 				FA15C98D2AE1E38C004E1866 /* AppDelegate.swift in Sources */,
-				FAE3E79A2AE5B1D7005ECF7B /* IconButtons.swift in Sources */,
-				FAE3E7A92AE62900005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */,
+				FAE3E79A2AE5B1D7005ECF7B /* Icons.swift in Sources */,
+				FAE3E7AF2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */,
 				FAE3E7A32AE61BA7005ECF7B /* HomeViewModel.swift in Sources */,
 				FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */,
 				FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */,
+				FAE3E7B32AE6407C005ECF7B /* EmptyProjectsView.swift in Sources */,
+				FAE3E7B12AE63CB3005ECF7B /* UITableView+Ext.swift in Sources */,
 				FA15C98F2AE1E38C004E1866 /* SceneDelegate.swift in Sources */,
+				FAE3E7B62AE643E8005ECF7B /* Fonts.swift in Sources */,
 				FAE3E79C2AE5C6DF005ECF7B /* CashFocusButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
