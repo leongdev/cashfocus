@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "pig_dark.png",
+      "filename" : "pig-dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "pig_dark@2x.png",
+      "filename" : "pig-dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -44,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "pig_dark@3x.png",
+      "filename" : "pig-dark@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
