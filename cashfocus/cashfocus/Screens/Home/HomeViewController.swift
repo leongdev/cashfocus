@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
     iconSize: 15
   )
   
-
   private lazy var projectsTableView: UITableView = {
     let tableView = UITableView()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -36,12 +35,10 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    print(viewModel.projectsList)
   }
   
   @objc func onPressAddNewProject() {
     coordinator?.onPressNewProject()
-    print("NEW PROJECT")
   }
   
   @objc func onPressSettings() {
