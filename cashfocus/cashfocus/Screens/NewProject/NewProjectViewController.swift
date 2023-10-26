@@ -13,6 +13,7 @@ class NewProjectViewController: UIViewController {
   private lazy var AddButton: UIBarButtonItem = {
     let button  = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onPressAdd))
     button.tintColor = .systemGreen
+    //button.isEnabled = test.isEmpty
     return button
   }()
   
