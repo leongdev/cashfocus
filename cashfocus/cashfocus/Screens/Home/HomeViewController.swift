@@ -8,6 +8,9 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+  
+  weak var coordinator: MainCoordinator?
+  
   private let spacing:CGFloat = 20
   private let viewModel = HomeViewModel()
   private lazy var header = CashFocusHeader()
@@ -37,12 +40,13 @@ class HomeViewController: UIViewController {
   }
   
   @objc func onPressAddNewProject() {
+    coordinator?.onPressNewProject()
     print("NEW PROJECT")
   }
   
   @objc func onPressSettings() {
-    print("SETTINGS")
-  } 
+    coordinator?.onPressSettigs()
+  }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
