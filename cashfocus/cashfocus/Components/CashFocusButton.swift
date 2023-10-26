@@ -50,7 +50,6 @@ private extension CashFocusButton {
   func setup() {
     self.translatesAutoresizingMaskIntoConstraints = false
 
-  
     var config = UIButton.Configuration.filled()
     config.baseBackgroundColor = .systemGreen
     config.cornerStyle = .medium

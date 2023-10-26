@@ -31,7 +31,6 @@ class HomeViewController: UIViewController {
   
   private let emptyScreen = EmptyProjectsView()
 
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()

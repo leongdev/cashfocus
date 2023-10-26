@@ -34,6 +34,9 @@ class MainCoordinator: Coordinator {
   func onPressSettigs() {
     let vc = SettingsViewController()
     vc.coordinator = self
-    nav.present(vc, animated: true)
+    
+    let navigation = UINavigationController(rootViewController: vc)
+    navigation.modalPresentationStyle = .pageSheet
+    nav.present(navigation, animated: true)
   }
 }

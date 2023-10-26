@@ -25,7 +25,6 @@ class NewProjectViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    view.backgroundColor = .systemBackground
   }
   
   @objc func onPressAdd() {
@@ -42,5 +41,10 @@ private extension NewProjectViewController {
     navigationItem.title = "New Project"
     navigationItem.rightBarButtonItem = AddButton
     navigationItem.leftBarButtonItem = CancelButton
+    view.backgroundColor = .systemBackground
   }
+}
+
+#Preview {
+  NewProjectViewController()
 }
