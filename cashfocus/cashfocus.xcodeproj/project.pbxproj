@@ -22,6 +22,7 @@
 		FA25B8112AE4EA3F001307E8 /* CashFocusIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */; };
 		FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */; };
 		FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D89012AE2420200795DA7 /* HomeViewController.swift */; };
+		FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */; };
 		FA83DAD52AE9EAF900FF2701 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */; };
 		FA83DAD72AE9EB5A00FF2701 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD62AE9EB5A00FF2701 /* MainCoordinator.swift */; };
 		FA83DADB2AE9FE3E00FF2701 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DADA2AE9FE3E00FF2701 /* SettingsViewController.swift */; };
@@ -81,6 +82,7 @@
 		FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusIconButton.swift; sourceTree = "<group>"; };
 		FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusHeader.swift; sourceTree = "<group>"; };
 		FA4D89012AE2420200795DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FA83DAD62AE9EB5A00FF2701 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		FA83DADA2AE9FE3E00FF2701 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				FA83DADC2AE9FE8100FF2701 /* NewProjectViewController.swift */,
+				FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */,
 			);
 			path = NewProject;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				FAE3E7AE2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */,
 				FA83DAD72AE9EB5A00FF2701 /* MainCoordinator.swift in Sources */,
 				FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */,
+				FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */,
 				FA1FDCF82AE7688600BAEE54 /* UIView+Ext.swift in Sources */,
 				FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */,
 				FA15C98D2AE1E38C004E1866 /* AppDelegate.swift in Sources */,

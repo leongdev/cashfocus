@@ -10,9 +10,10 @@ import UIKit
 class HomeViewController: UIViewController {
   
   weak var coordinator: MainCoordinator?
+  private let viewModel = HomeViewModel()
   
   private let spacing:CGFloat = 20
-  private let viewModel = HomeViewModel()
+
   private lazy var header = CashFocusHeader()
   private lazy var addProjectButton = CashFocusButton(
     iconName: Icons.plus.rawValue,
@@ -118,7 +119,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     return cell
   }
 }
-
 
 #Preview {
   HomeViewController()
