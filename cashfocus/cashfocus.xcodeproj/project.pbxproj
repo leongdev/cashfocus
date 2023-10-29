@@ -21,6 +21,8 @@
 		FA25B80F2AE4E699001307E8 /* CashFocusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B80E2AE4E699001307E8 /* CashFocusLabel.swift */; };
 		FA25B8112AE4EA3F001307E8 /* CashFocusIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */; };
 		FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */; };
+		FA31814E2AED806F0020FEEA /* CashFocusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31814D2AED806F0020FEEA /* CashFocusLine.swift */; };
+		FA3181502AED86A90020FEEA /* CashFocusTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */; };
 		FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D89012AE2420200795DA7 /* HomeViewController.swift */; };
 		FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */; };
 		FA83DAD52AE9EAF900FF2701 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */; };
@@ -81,6 +83,8 @@
 		FA25B80E2AE4E699001307E8 /* CashFocusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusLabel.swift; sourceTree = "<group>"; };
 		FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusIconButton.swift; sourceTree = "<group>"; };
 		FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusHeader.swift; sourceTree = "<group>"; };
+		FA31814D2AED806F0020FEEA /* CashFocusLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusLine.swift; sourceTree = "<group>"; };
+		FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusTextView.swift; sourceTree = "<group>"; };
 		FA4D89012AE2420200795DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */,
 				FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */,
 				FAE3E7B22AE6407C005ECF7B /* EmptyProjectsView.swift */,
+				FA31814D2AED806F0020FEEA /* CashFocusLine.swift */,
+				FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -488,7 +494,9 @@
 				FAE3E7AF2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */,
 				FAE3E7A32AE61BA7005ECF7B /* HomeViewModel.swift in Sources */,
 				FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */,
+				FA3181502AED86A90020FEEA /* CashFocusTextView.swift in Sources */,
 				FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */,
+				FA31814E2AED806F0020FEEA /* CashFocusLine.swift in Sources */,
 				FA83DADB2AE9FE3E00FF2701 /* SettingsViewController.swift in Sources */,
 				FAE3E7B32AE6407C005ECF7B /* EmptyProjectsView.swift in Sources */,
 				FAE3E7B12AE63CB3005ECF7B /* UITableView+Ext.swift in Sources */,

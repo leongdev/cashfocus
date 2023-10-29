@@ -11,4 +11,5 @@ enum Icons: String {
   case gearshapeFill = "gearshape.fill"
   case elipseCircle = "ellipsis.circle"
   case plus = "plus"
+  case dollarsign = "dollarsign"
 }
