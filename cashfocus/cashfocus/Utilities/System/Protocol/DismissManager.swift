@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol Dismiss {
+protocol DismissManager: NSObjectProtocol {
     func onDismissed()
 }

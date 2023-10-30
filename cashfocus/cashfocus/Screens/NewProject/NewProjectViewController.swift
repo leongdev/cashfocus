@@ -8,7 +8,7 @@
 import UIKit
 
 class NewProjectViewController: UIViewController {
-  
+
   weak var coordinator: MainCoordinator?
   private let viewModel = NewProjectViewModel()
   
@@ -16,18 +16,29 @@ class NewProjectViewController: UIViewController {
   
   private var projectName = ""
   private var projectDescription = ""
-  private var hourdlyRate = 0
+  private var hourlyRate: Float = 0
   
   private lazy var Line: CashFocusLine = {
-    let line = CashFocusLine(backgroundColor: .modalBackground)
+    let line = CashFocusLine(backgroundColor: .line)
     return line
   }()
   
   private lazy var AddButton: UIBarButtonItem = {
     let button  = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onPressAdd))
     button.tintColor = .systemGreen
-    //button.isEnabled = test.isEmpty
+    button.isEnabled = false
     return button
+  }()
+  
+  private lazy var HourlyRateLabel: UILabel = {
+    let label  = UILabel()
+    label.text = "☝️how much you will receive in this project per hour!"
+    label.font = UIFont(name: Fonts.regular.rawValue, size: 18)
+    label.textColor = .systemGray3
+    label.numberOfLines = 3
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.lineBreakMode = .byWordWrapping
+    return label
   }()
   
   private lazy var CancelButton: UIBarButtonItem = {
@@ -46,11 +57,14 @@ class NewProjectViewController: UIViewController {
   
   private lazy var NameTextField: UITextField = {
     let textField  = UITextField()
-    textField.placeholder = "Name"
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.backgroundColor = .inputBackground
-    textField.delegate = self
     
+    textField.delegate = self
+    textField.attributedPlaceholder = NSAttributedString(
+      string: "Name",
+      attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3]
+    )
     return textField
   }()
   
@@ -62,19 +76,20 @@ class NewProjectViewController: UIViewController {
     leftImageView.frame = CGRect(x: 13, y: 0, width: 17, height: 28)
     leftImageView.tintColor = .systemGreen
     
-    textField.placeholder = "00.00"
+    textField.placeholder = "00"
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.backgroundColor = .inputBackground
-    textField.delegate = self
     textField.layer.cornerRadius = 10
     textField.textAlignment = .left
-
     textField.leftView =  UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 32))
-    
     textField.font = UIFont(name: Fonts.regular.rawValue, size: 18)
     textField.keyboardType = .numberPad
     textField.leftView?.addSubview(leftImageView)
     textField.leftViewMode = .always
+    
+    textField.delegate = self
+    
+    textField.addDoneButtonOnKeyboard(name: "Done", color: .systemGreen)
     
     return textField
   }()
@@ -82,9 +97,10 @@ class NewProjectViewController: UIViewController {
   private lazy var DescriptionTextField: CashFocusTextView = {
     let textView  = CashFocusTextView(fontSize: 17)
     textView.backgroundColor = .inputBackground
-    textView.textColor = .systemGray2
+    textView.textColor = .systemGray3
     textView.delegate = self
     textView.text = "Description"
+    textView.addDoneButtonOnKeyboard(name: "Done", color: .systemGreen)
     return textView
   }()
   
@@ -94,19 +110,34 @@ class NewProjectViewController: UIViewController {
   }
   
   @objc func onPressAdd() {
-    
+    //viewModel.createProjectItem(name: projectName, description: projectDescription, hourlyRate: hourlyRate)
+    self.dismiss(animated: true)
   }
   
   @objc func onPressCancel() {
     self.dismiss(animated: true)
   }
+  
+  func checkAddButton() {
+    let nameText = NameTextField.text ?? ""
+    let hourlyText = HourlyRateTextField.text ?? ""
+    
+    if !nameText.isEmpty && !hourlyText.isEmpty {
+      AddButton.isEnabled = true
+    } else {
+      AddButton.isEnabled = false
+    }
+  }
 }
 
 extension NewProjectViewController: UITextViewDelegate, UITextFieldDelegate {
+  // MARK: - Setup UI
+  
   func setup() {
     setupScreen()
     setupNameDescription()
     setupHourlyRate()
+    setupHourlyLabel()
   }
   
   func setupScreen() {
@@ -138,8 +169,8 @@ extension NewProjectViewController: UITextViewDelegate, UITextFieldDelegate {
       Line.trailingAnchor.constraint(equalTo: NameDescriptionView.trailingAnchor, constant: -padding),
       Line.heightAnchor.constraint(equalToConstant: 1),
       
-      DescriptionTextField.topAnchor.constraint(equalTo: Line.bottomAnchor),
-      DescriptionTextField.leadingAnchor.constraint(equalTo: NameDescriptionView.leadingAnchor, constant: padding),
+      DescriptionTextField.topAnchor.constraint(equalTo: Line.bottomAnchor, constant: 10),
+      DescriptionTextField.leadingAnchor.constraint(equalTo: NameDescriptionView.leadingAnchor, constant: 15),
       DescriptionTextField.trailingAnchor.constraint(equalTo: NameDescriptionView.trailingAnchor, constant: -padding),
       DescriptionTextField.heightAnchor.constraint(equalToConstant: 120),
     ])
@@ -152,31 +183,68 @@ extension NewProjectViewController: UITextViewDelegate, UITextFieldDelegate {
       HourlyRateTextField.topAnchor.constraint(equalTo: NameDescriptionView.bottomAnchor, constant: padding),
       HourlyRateTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
       HourlyRateTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-      HourlyRateTextField.heightAnchor.constraint(equalToConstant: 50)
+      HourlyRateTextField.heightAnchor.constraint(equalToConstant: 50),
     ])
   }
   
+  func setupHourlyLabel() {
+    view.addSubview(HourlyRateLabel)
+    NSLayoutConstraint.activate([
+      HourlyRateLabel.topAnchor.constraint(equalTo: HourlyRateTextField.bottomAnchor, constant: padding),
+      HourlyRateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+      HourlyRateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+    ])
+  }
+  
+  // MARK: - Delegate Functions
+  
   func textViewDidBeginEditing(_ textView: UITextView) {
-    if DescriptionTextField.textColor == .systemGray2 {
+    if DescriptionTextField.textColor == .systemGray3 {
       DescriptionTextField.text = nil
       DescriptionTextField.textColor = .mainText
     }
   }
   
   func textViewDidEndEditing(_ textView: UITextView) {
+    
+    checkAddButton()
+    
     if DescriptionTextField.text.isEmpty {
       DescriptionTextField.text = "Description"
-      DescriptionTextField.textColor = .systemGray2
+      DescriptionTextField.textColor = .systemGray3
     }
     
     projectDescription = DescriptionTextField.text
   }
+
   
   func textFieldDidEndEditing(_ textField: UITextField) {
-    print(textField)
+    
+    checkAddButton()
+    
+    switch textField.placeholder {
+      case "Name":
+        guard let inputText =  textField.text else {
+          return projectName = ""
+        }
+        projectName = inputText
+        
+      case "00":
+        guard let inputText =  textField.text else {
+          return hourlyRate = 0
+        }
+      hourlyRate = Float(inputText) ?? 0.0
+      case .none:
+        break
+      case .some(_):
+        break
+    }
   }
-}
-
-#Preview {
-  NewProjectViewController()
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField.placeholder == "Name" {
+      self.view.endEditing(true)
+    }
+    return false
+  }
 }

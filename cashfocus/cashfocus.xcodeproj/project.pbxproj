@@ -23,6 +23,8 @@
 		FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */; };
 		FA31814E2AED806F0020FEEA /* CashFocusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31814D2AED806F0020FEEA /* CashFocusLine.swift */; };
 		FA3181502AED86A90020FEEA /* CashFocusTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */; };
+		FA3181522AEED0FA0020FEEA /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3181512AEED0FA0020FEEA /* UITextView+Ext.swift */; };
+		FA3181542AEEE1390020FEEA /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3181532AEEE1390020FEEA /* UITextField+Ext.swift */; };
 		FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D89012AE2420200795DA7 /* HomeViewController.swift */; };
 		FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */; };
 		FA83DAD52AE9EAF900FF2701 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */; };
@@ -45,6 +47,7 @@
 		FAEAE7642AE445DB00E01977 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */; };
 		FAEAE7652AE445DB00E01977 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE7602AE445DB00E01977 /* Nunito-Light.ttf */; };
 		FAEAE7662AE445DB00E01977 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEAE7612AE445DB00E01977 /* Nunito-Bold.ttf */; };
+		FAFF42B92AEF776E00491C9B /* DismissManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF42B82AEF776E00491C9B /* DismissManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,8 @@
 		FA25B8122AE4F3DC001307E8 /* CashFocusHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusHeader.swift; sourceTree = "<group>"; };
 		FA31814D2AED806F0020FEEA /* CashFocusLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusLine.swift; sourceTree = "<group>"; };
 		FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusTextView.swift; sourceTree = "<group>"; };
+		FA3181512AEED0FA0020FEEA /* UITextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Ext.swift"; sourceTree = "<group>"; };
+		FA3181532AEEE1390020FEEA /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		FA4D89012AE2420200795DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 		FAEAE75F2AE445DB00E01977 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
 		FAEAE7602AE445DB00E01977 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		FAEAE7612AE445DB00E01977 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		FAFF42B82AEF776E00491C9B /* DismissManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 		FA08F9592AE8D4AD001B7AE4 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				FAFF42BA2AEF779000491C9B /* Protocol */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -257,6 +264,8 @@
 				FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */,
 				FAE3E7B02AE63CB3005ECF7B /* UITableView+Ext.swift */,
 				FA1FDCF72AE7688600BAEE54 /* UIView+Ext.swift */,
+				FA3181512AEED0FA0020FEEA /* UITextView+Ext.swift */,
+				FA3181532AEEE1390020FEEA /* UITextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +349,14 @@
 				FA15C99A2AE1E38D004E1866 /* LaunchScreen.storyboard */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		FAFF42BA2AEF779000491C9B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF42B82AEF776E00491C9B /* DismissManager.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE3E7A12AE5DB54005ECF7B /* CashFocusButton+Ext.swift in Sources */,
+				FA3181542AEEE1390020FEEA /* UITextField+Ext.swift in Sources */,
 				FA1A8BE12AEB129A00CBB7C3 /* AccountViewController.swift in Sources */,
 				FA83DADD2AE9FE8100FF2701 /* NewProjectViewController.swift in Sources */,
 				FA15C9972AE1E38C004E1866 /* cashfocus.xcdatamodeld in Sources */,
@@ -486,9 +504,11 @@
 				FAE3E7AE2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */,
 				FA83DAD72AE9EB5A00FF2701 /* MainCoordinator.swift in Sources */,
 				FA25B8132AE4F3DC001307E8 /* CashFocusHeader.swift in Sources */,
+				FA3181522AEED0FA0020FEEA /* UITextView+Ext.swift in Sources */,
 				FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */,
 				FA1FDCF82AE7688600BAEE54 /* UIView+Ext.swift in Sources */,
 				FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */,
+				FAFF42B92AEF776E00491C9B /* DismissManager.swift in Sources */,
 				FA15C98D2AE1E38C004E1866 /* AppDelegate.swift in Sources */,
 				FAE3E79A2AE5B1D7005ECF7B /* Icons.swift in Sources */,
 				FAE3E7AF2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */,

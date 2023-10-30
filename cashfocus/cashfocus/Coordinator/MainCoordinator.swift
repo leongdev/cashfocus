@@ -25,7 +25,7 @@ class MainCoordinator: Coordinator {
   func onPressNewProject() {
     let vc = NewProjectViewController()
     vc.coordinator = self
-    
+
     let navigation = UINavigationController(rootViewController: vc)
     navigation.modalPresentationStyle = .pageSheet
     nav.present(navigation, animated: true)
