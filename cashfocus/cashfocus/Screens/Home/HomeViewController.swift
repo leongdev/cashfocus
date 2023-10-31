@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     iconSize: 15
   )
   
-  private lazy var projectsTableView: UITableView = {
+  lazy var projectsTableView: UITableView = {
     let tableView = UITableView()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +34,12 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
+  }
+  
+  override func viewWillAppear(_ animated: Bool){
+    viewModel.getAllProjects()
+    projectsTableView.reloadData()
+    print("AOBAH")
   }
   
   @objc func onPressAddNewProject() {
@@ -108,7 +114,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     } else {
       projectsTableView.onRestore()
     }
-  
+    
     return viewModel.projectsList.count
   }
   
@@ -117,8 +123,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     cell.textLabel?.text = "Hello World"
     return cell
   }
-}
-
-#Preview {
-  HomeViewController()
 }

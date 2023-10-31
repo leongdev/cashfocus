@@ -27,7 +27,7 @@ class MainCoordinator: Coordinator {
     vc.coordinator = self
 
     let navigation = UINavigationController(rootViewController: vc)
-    navigation.modalPresentationStyle = .pageSheet
+    navigation.modalPresentationStyle = .fullScreen
     nav.present(navigation, animated: true)
   }
   

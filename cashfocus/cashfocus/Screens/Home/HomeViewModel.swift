@@ -63,7 +63,3 @@ class HomeViewModel {
     }
   }
 }
-
-#Preview {
-  HomeViewController()
-}

@@ -109,8 +109,18 @@ class NewProjectViewController: UIViewController {
     setup()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+
+      if let firstVC = presentingViewController as? HomeViewController {
+          DispatchQueue.main.async {
+              firstVC.projectsTableView.reloadData()
+          }
+      }
+  }
+  
   @objc func onPressAdd() {
-    //viewModel.createProjectItem(name: projectName, description: projectDescription, hourlyRate: hourlyRate)
+    viewModel.createProjectItem(name: projectName, description: projectDescription, hourlyRate: hourlyRate)
     self.dismiss(animated: true)
   }
   
