@@ -25,6 +25,7 @@
 		FA3181502AED86A90020FEEA /* CashFocusTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */; };
 		FA3181522AEED0FA0020FEEA /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3181512AEED0FA0020FEEA /* UITextView+Ext.swift */; };
 		FA3181542AEEE1390020FEEA /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3181532AEEE1390020FEEA /* UITextField+Ext.swift */; };
+		FA34DCD42AF209410082198B /* CashFocusProjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34DCD32AF209410082198B /* CashFocusProjectsCell.swift */; };
 		FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D89012AE2420200795DA7 /* HomeViewController.swift */; };
 		FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */; };
 		FA83DAD52AE9EAF900FF2701 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */; };
@@ -90,6 +91,7 @@
 		FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusTextView.swift; sourceTree = "<group>"; };
 		FA3181512AEED0FA0020FEEA /* UITextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Ext.swift"; sourceTree = "<group>"; };
 		FA3181532AEEE1390020FEEA /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		FA34DCD32AF209410082198B /* CashFocusProjectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusProjectsCell.swift; sourceTree = "<group>"; };
 		FA4D89012AE2420200795DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				FAE3E7B22AE6407C005ECF7B /* EmptyProjectsView.swift */,
 				FA31814D2AED806F0020FEEA /* CashFocusLine.swift */,
 				FA31814F2AED86A90020FEEA /* CashFocusTextView.swift */,
+				FA34DCD32AF209410082198B /* CashFocusProjectsCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				FA31814E2AED806F0020FEEA /* CashFocusLine.swift in Sources */,
 				FA83DADB2AE9FE3E00FF2701 /* SettingsViewController.swift in Sources */,
 				FAE3E7B32AE6407C005ECF7B /* EmptyProjectsView.swift in Sources */,
+				FA34DCD42AF209410082198B /* CashFocusProjectsCell.swift in Sources */,
 				FAE3E7B12AE63CB3005ECF7B /* UITableView+Ext.swift in Sources */,
 				FA15C98F2AE1E38C004E1866 /* SceneDelegate.swift in Sources */,
 				FAE3E7B62AE643E8005ECF7B /* Fonts.swift in Sources */,

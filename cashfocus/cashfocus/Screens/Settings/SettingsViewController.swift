@@ -10,15 +10,6 @@ import UIKit
 class SettingsViewController: UIViewController {
   weak var coordinator: MainCoordinator?
   
-  private lazy var CloseButton: UIBarButtonItem = {
-    let button  = UIBarButtonItem(
-      barButtonSystemItem: .close,
-      target: self,
-      action: #selector(onPressCancel)
-    )
-    return button
-  }()
-  
   private lazy var nextScreenButton: UIButton = {
     var button = UIButton()
     button.setTitle("Next Screen", for: .normal)
@@ -29,12 +20,7 @@ class SettingsViewController: UIViewController {
   }()
   
   @objc func onPressNextScreen() {
-    let vc = AccountViewController()
-    let navigation = UINavigationController(rootViewController: vc)
-    
-    navigation.modalPresentationStyle = .pageSheet
-    
-    self.present(navigation, animated: true)
+    coordinator?.onPressAccount()
   }
   
   @objc func onPressCancel() {
@@ -52,7 +38,7 @@ extension SettingsViewController {
     view.backgroundColor = .systemBackground
     navigationItem.title = "Settings"
     navigationItem.largeTitleDisplayMode = .automatic
-    navigationItem.rightBarButtonItem = CloseButton
+    navigationController?.navigationBar.tintColor = .systemGreen
     
     view.addSubview(nextScreenButton)
     
@@ -61,8 +47,4 @@ extension SettingsViewController {
       nextScreenButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
     ])
   }
-}
-
-#Preview {
-  SettingsViewController()
 }

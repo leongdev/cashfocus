@@ -9,6 +9,8 @@ import UIKit
 
 class AccountViewController: UIViewController {
   
+  weak var coordinator: MainCoordinator?
+  
   private lazy var CloseButton: UIBarButtonItem = {
     let button  = UIBarButtonItem(
       barButtonSystemItem: .close,

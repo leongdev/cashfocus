@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
   
   lazy var projectsTableView: UITableView = {
     let tableView = UITableView()
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    tableView.register(CashFocusProjectsCell.self, forCellReuseIdentifier: CashFocusProjectsCell.identifier)
     tableView.translatesAutoresizingMaskIntoConstraints = false
     return tableView
   }()
@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool){
     viewModel.getAllProjects()
     projectsTableView.reloadData()
-    print("AOBAH")
   }
   
   @objc func onPressAddNewProject() {
@@ -119,8 +118,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.textLabel?.text = "Hello World"
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: CashFocusProjectsCell.identifier, for: indexPath) as? CashFocusProjectsCell else {
+      fatalError("The table view could not dequeue a CustomCell in ViewController")
+    }
+    cell.textLabel?.text = viewModel.projectsList[indexPath.row].projectName
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("Clicked \(indexPath.row)")
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+          viewModel.deleteProjectItem(item: viewModel.projectsList[indexPath.row])
+          viewModel.getAllProjects()
+          tableView.reloadData()
+      } else if editingStyle == .insert {
+          // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+      }
   }
 }
