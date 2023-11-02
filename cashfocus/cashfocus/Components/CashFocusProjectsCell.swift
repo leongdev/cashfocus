@@ -44,6 +44,7 @@ class CashFocusProjectsCell: UITableViewCell {
     let label = UILabel()
     label.font = UIFont(name: Fonts.regular.rawValue, size: 16)
     label.translatesAutoresizingMaskIntoConstraints = false
+    label.lineBreakMode = .byWordWrapping
     return label
   }()
   
@@ -52,20 +53,15 @@ class CashFocusProjectsCell: UITableViewCell {
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = UIFont(name: Fonts.regular.rawValue, size: 23)
     label.textColor = .systemGreen
+    label.lineBreakMode = .byWordWrapping
     return label
   }()
   
-  lazy var playButton: UIButton = {
-    let button = UIButton()
-    
-    button.setImage(
-      UIImage(
-        systemName: Icons.chevronForward.rawValue,
-        withConfiguration:
-          UIImage.SymbolConfiguration(
-            font: UIFont.systemFont(ofSize: 12)
-          )), for: .normal)
-    
+  lazy var playButton: CashFocusIconButton = {
+    let button = CashFocusIconButton(
+      iconName: Icons.playCircleFill.rawValue,
+      color: .systemGreen, fontSize: 35
+    )
     return button
   }()
 
@@ -86,7 +82,7 @@ private extension CashFocusProjectsCell {
     setupTitle()
     setupTimePrice()
     setupTime()
-
+    setupPlayButton()
   }
   
   func setupBackground() {
@@ -120,6 +116,7 @@ private extension CashFocusProjectsCell {
     NSLayoutConstraint.activate([
       title.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 12),
       title.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 12),
+      title.widthAnchor.constraint(equalToConstant: 200),
     ])
   }
   
@@ -129,6 +126,7 @@ private extension CashFocusProjectsCell {
     NSLayoutConstraint.activate([
       timePrice.bottomAnchor.constraint(equalTo: cellBackground.bottomAnchor, constant: -5),
       timePrice.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 12),
+      timePrice.widthAnchor.constraint(equalToConstant: 100)
     ])
   }  
   
@@ -138,6 +136,8 @@ private extension CashFocusProjectsCell {
     NSLayoutConstraint.activate([
       playButton.bottomAnchor.constraint(equalTo: cellBackground.bottomAnchor, constant: -5),
       playButton.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -12),
+      playButton.heightAnchor.constraint(equalToConstant: 30),
+      playButton.widthAnchor.constraint(equalToConstant: 30),
     ])
   }
   

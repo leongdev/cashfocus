@@ -127,6 +127,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     cell.title.text =  viewModel.projectsList[indexPath.row].projectName
     cell.timePrice.text = "$ 00,00"
     cell.time.text = "00:00:00" 
+    cell.isPlaying = true
     return cell
   }
   

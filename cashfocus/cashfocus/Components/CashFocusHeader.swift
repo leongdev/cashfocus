@@ -61,7 +61,3 @@ private extension CashFocusHeader {
     ])
   }
 }
-
-#Preview {
-  CashFocusHeader(frame: .zero)
-}

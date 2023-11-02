@@ -13,4 +13,7 @@ enum Icons: String {
   case plus = "plus"
   case dollarsign = "dollarsign"
   case chevronForward = "chevron.forward"
+  case playCircleFill = "play.circle.fill"
+  case pauseCircleFill = "pause.circle.fill"
+  case xmarkCircleFill = "xmark.circle.fill"
 }
