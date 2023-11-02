@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
     let tableView = UITableView()
     tableView.register(CashFocusProjectsCell.self, forCellReuseIdentifier: CashFocusProjectsCell.identifier)
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.backgroundColor =  .modalBackground
     return tableView
   }()
   
@@ -60,7 +61,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func setupView() {
-    view.backgroundColor = .systemBackground
+    view.backgroundColor = .modalBackground
   }
   
   func setupHeader() {
@@ -97,6 +98,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     projectsTableView.delegate = self
     projectsTableView.dataSource = self
+    projectsTableView.rowHeight = 95
+    projectsTableView.separatorStyle = .none
     
     NSLayoutConstraint.activate([
       projectsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: spacing),
@@ -121,7 +124,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: CashFocusProjectsCell.identifier, for: indexPath) as? CashFocusProjectsCell else {
       fatalError("The table view could not dequeue a CustomCell in ViewController")
     }
-    cell.textLabel?.text = viewModel.projectsList[indexPath.row].projectName
+    cell.title.text =  viewModel.projectsList[indexPath.row].projectName
+    cell.timePrice.text = "$ 00,00"
+    cell.time.text = "00:00:00" 
     return cell
   }
   
