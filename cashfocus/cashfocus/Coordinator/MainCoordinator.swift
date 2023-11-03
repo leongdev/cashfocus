@@ -43,7 +43,13 @@ class MainCoordinator: Coordinator {
   func onPressSettigs() {
     let vc = SettingsViewController()
     vc.coordinator = self
-   
+    nav.pushViewController(vc, animated: true)
+  }
+  
+  func onPressProjectDetails(projectIndex: Int) {
+    let vc = ProjectDetailsViewController()
+    vc.coordinator = self
+    vc.projectIndex = projectIndex
     nav.pushViewController(vc, animated: true)
   }
 }

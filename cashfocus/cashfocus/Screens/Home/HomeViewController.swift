@@ -13,12 +13,18 @@ class HomeViewController: UIViewController {
   
   private let spacing:CGFloat = 20
 
-  lazy var settingsButton = CashFocusIconButton(
-    iconName: Icons.gearshapeFill.rawValue,
-    color: .systemGreen,
-    fontSize: 20
-  )
+  private lazy var settingsButton: CashFocusIconButton = {
+    let button =   CashFocusIconButton(
+      iconName: Icons.gearshapeFill.rawValue,
+      color: .systemGreen,
+      fontSize: 20
+    )
+    
+    button.addTarget(self, action: #selector(onPressSettings), for: .touchUpInside)
+    return button
+  }()
   
+
   private lazy var addProjectButton = CashFocusButton(
     iconName: Icons.plus.rawValue,
     label: "Add New Project",
@@ -35,7 +41,14 @@ class HomeViewController: UIViewController {
     return tableView
   }()
   
-  private let emptyScreen = EmptyProjectsView()
+  lazy var seartchBar: UISearchController = {
+    let search = UISearchController()
+    return search
+  }()
+  
+  private let emptyView = EmptyProjectsView()
+  
+  // MARK: - Life Cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,7 +58,15 @@ class HomeViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool){
     viewModel.getAllProjects()
     projectsTableView.reloadData()
+    navigationController?.setNavigationBarHidden(false, animated: true)
+    navigationController?.navigationBar.prefersLargeTitles = true
   }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    navigationController?.setNavigationBarHidden(true, animated: true)
+  }
+  
+  // MARK: - Functions
   
   @objc func onPressAddNewProject() {
     coordinator?.onPressNewProject()
@@ -54,8 +75,14 @@ class HomeViewController: UIViewController {
   @objc func onPressSettings() {
     coordinator?.onPressSettigs()
   }
+  
+  func onSelectItem(itemIndex: Int) {
+    coordinator?.onPressProjectDetails(projectIndex: itemIndex)
+  }
 }
 
+
+// MARK: - Constraints
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   
   func setup() {
@@ -66,16 +93,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   
   func setupView() {
     view.backgroundColor = .modalBackground
-
-    navigationController?.navigationBar.prefersLargeTitles = true
-    navigationItem.largeTitleDisplayMode = .automatic
-    navigationController?.navigationBar.sizeToFit()
-    
     projectsTableView.contentInsetAdjustmentBehavior = .never
     
-    navigationItem.title = "Hello!"
+    navigationItem.title = "Hello! 🤑"
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .done, target: .none , action:.none )
+    navigationItem.searchController = seartchBar
+  
+    navigationItem.largeTitleDisplayMode = .automatic
+    navigationController?.navigationBar.sizeToFit()
   }
   
   func setupAddProjectButton() {
@@ -101,15 +126,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     projectsTableView.rowHeight = 100
     projectsTableView.showsVerticalScrollIndicator = false
     
-    
     NSLayoutConstraint.activate([
       projectsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       projectsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
       projectsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      projectsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+      projectsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
     ])
   }
 
+  // MARK: - Delegates
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
     if viewModel.projectsList.count == 0 {
@@ -133,7 +159,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("Clicked \(indexPath.row)")
+    onSelectItem(itemIndex: indexPath.row)
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

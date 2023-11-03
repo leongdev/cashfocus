@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     
     let navigationController = UINavigationController()
+    navigationController.navigationBar.tintColor = .systemGreen
     
     coordinator = MainCoordinator(nav: navigationController)
     coordinator?.start()
@@ -24,8 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.windowScene = windowScene
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
-    
-    navigationController.navigationBar.tintColor = .systemGreen
   }
   
   func sceneDidDisconnect(_ scene: UIScene) {

@@ -19,12 +19,24 @@ class SettingsViewController: UIViewController {
     return button
   }()
   
+  private lazy var backButton: UIBarButtonItem = {
+    var button = UIBarButtonItem()
+    button.title = "Back"
+    return button
+  }()
+  
+  
   @objc func onPressNextScreen() {
     coordinator?.onPressAccount()
   }
   
   @objc func onPressCancel() {
     navigationController?.dismiss(animated: true)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    navigationController?.navigationBar.prefersLargeTitles = false
+    navigationController?.setNavigationBarHidden(false, animated: true)
   }
   
   override func viewDidLoad() {
@@ -38,7 +50,7 @@ extension SettingsViewController {
     view.backgroundColor = .systemBackground
     navigationItem.title = "Settings"
     navigationItem.largeTitleDisplayMode = .automatic
-    navigationController?.navigationBar.tintColor = .systemGreen
+    navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     
     view.addSubview(nextScreenButton)
     

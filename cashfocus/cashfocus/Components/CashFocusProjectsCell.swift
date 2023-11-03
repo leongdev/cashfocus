@@ -103,7 +103,7 @@ private extension CashFocusProjectsCell {
     cellBackground.addSubview(title)
     
     NSLayoutConstraint.activate([
-      title.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 12),
+      title.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 5),
       title.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor),
       title.widthAnchor.constraint(equalToConstant: 200),
     ])
@@ -134,7 +134,7 @@ private extension CashFocusProjectsCell {
     cellBackground.addSubview(time)
     
     NSLayoutConstraint.activate([
-      time.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 12),
+      time.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 5),
       time.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor),
       time.widthAnchor.constraint(equalToConstant: 65)
     ])
