@@ -35,7 +35,7 @@ class CashFocusProjectsCell: UITableViewCell {
   
   private lazy var cellBackground: UIView = {
     let view = UIView()
-    view.backgroundColor = .inputBackground
+    view.backgroundColor = .modalBackground
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -60,7 +60,8 @@ class CashFocusProjectsCell: UITableViewCell {
   lazy var playButton: CashFocusIconButton = {
     let button = CashFocusIconButton(
       iconName: Icons.playCircleFill.rawValue,
-      color: .systemGreen, fontSize: 35
+      color: .systemGreen,
+      fontSize: 40
     )
     return button
   }()
@@ -78,7 +79,6 @@ class CashFocusProjectsCell: UITableViewCell {
 private extension CashFocusProjectsCell {
   func setup() {
     setupBackground()
-    setupLine()
     setupTitle()
     setupTimePrice()
     setupTime()
@@ -99,23 +99,12 @@ private extension CashFocusProjectsCell {
     ])
   }
   
-  func setupLine() {
-    cellBackground.addSubview(line)
-    
-    NSLayoutConstraint.activate([
-      line.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 12),
-      line.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -12),
-      line.centerYAnchor.constraint(equalTo:cellBackground.centerYAnchor),
-      line.heightAnchor.constraint(equalToConstant: 1),
-    ])
-  }
-  
   func setupTitle() {
     cellBackground.addSubview(title)
     
     NSLayoutConstraint.activate([
       title.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 12),
-      title.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 12),
+      title.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor),
       title.widthAnchor.constraint(equalToConstant: 200),
     ])
   }
@@ -125,7 +114,7 @@ private extension CashFocusProjectsCell {
     
     NSLayoutConstraint.activate([
       timePrice.bottomAnchor.constraint(equalTo: cellBackground.bottomAnchor, constant: -5),
-      timePrice.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 12),
+      timePrice.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor),
       timePrice.widthAnchor.constraint(equalToConstant: 100)
     ])
   }  
@@ -134,25 +123,20 @@ private extension CashFocusProjectsCell {
     cellBackground.addSubview(playButton)
     
     NSLayoutConstraint.activate([
-      playButton.bottomAnchor.constraint(equalTo: cellBackground.bottomAnchor, constant: -5),
-      playButton.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -12),
-      playButton.heightAnchor.constraint(equalToConstant: 30),
-      playButton.widthAnchor.constraint(equalToConstant: 30),
+      playButton.bottomAnchor.constraint(equalTo: cellBackground.bottomAnchor, constant: -2),
+      playButton.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor),
+      playButton.heightAnchor.constraint(equalToConstant: 40),
+      playButton.widthAnchor.constraint(equalToConstant: 40),
     ])
   }
   
   func setupTime() {
     cellBackground.addSubview(time)
-    cellBackground.addSubview(rightIcon)
     
     NSLayoutConstraint.activate([
-      rightIcon.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 13),
-      rightIcon.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -12),
-      rightIcon.widthAnchor.constraint(equalToConstant: 12),
-      rightIcon.heightAnchor.constraint(equalToConstant: 19),
-      
       time.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 12),
-      time.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -25),
+      time.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor),
+      time.widthAnchor.constraint(equalToConstant: 65)
     ])
   }
 }

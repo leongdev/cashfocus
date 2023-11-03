@@ -13,7 +13,12 @@ class HomeViewController: UIViewController {
   
   private let spacing:CGFloat = 20
 
-  private lazy var header = CashFocusHeader()
+  lazy var settingsButton = CashFocusIconButton(
+    iconName: Icons.gearshapeFill.rawValue,
+    color: .systemGreen,
+    fontSize: 20
+  )
+  
   private lazy var addProjectButton = CashFocusButton(
     iconName: Icons.plus.rawValue,
     label: "Add New Project",
@@ -55,28 +60,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   
   func setup() {
     setupView()
-    setupHeader()
-    setupAddProjectButton()
     setupTableView()
+    setupAddProjectButton()
   }
   
   func setupView() {
     view.backgroundColor = .modalBackground
-  }
-  
-  func setupHeader() {
-    view.addSubview(header)
+
+    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.largeTitleDisplayMode = .automatic
+    navigationController?.navigationBar.sizeToFit()
     
-    header.button.addTarget(self, action: #selector(onPressSettings), for: .touchUpInside)
+    projectsTableView.contentInsetAdjustmentBehavior = .never
     
-    NSLayoutConstraint.activate([
-      header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: spacing),
-      header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -spacing),
-      header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-      header.heightAnchor.constraint(equalToConstant: 30),
-    ])
+    navigationItem.title = "Hello!"
+    navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .done, target: .none , action:.none )
   }
-  
   
   func setupAddProjectButton() {
     view.addSubview(addProjectButton)
@@ -98,12 +98,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     projectsTableView.delegate = self
     projectsTableView.dataSource = self
-    projectsTableView.rowHeight = 95
-    projectsTableView.separatorStyle = .none
+    projectsTableView.rowHeight = 100
+    projectsTableView.showsVerticalScrollIndicator = false
+    
     
     NSLayoutConstraint.activate([
-      projectsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: spacing),
-      projectsTableView.bottomAnchor.constraint(equalTo: addProjectButton.topAnchor, constant: -spacing),
+      projectsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      projectsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
       projectsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       projectsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     ])
@@ -126,8 +127,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     cell.title.text =  viewModel.projectsList[indexPath.row].projectName
     cell.timePrice.text = "$ 00,00"
-    cell.time.text = "00:00:00" 
-    cell.isPlaying = true
+    cell.time.text = "00:00:00"
+    cell.selectionStyle = .none
     return cell
   }
   

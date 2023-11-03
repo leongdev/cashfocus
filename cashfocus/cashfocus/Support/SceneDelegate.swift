@@ -24,6 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.windowScene = windowScene
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
+    
+    navigationController.navigationBar.tintColor = .systemGreen
   }
   
   func sceneDidDisconnect(_ scene: UIScene) {
