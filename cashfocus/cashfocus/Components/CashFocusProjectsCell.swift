@@ -35,7 +35,7 @@ class CashFocusProjectsCell: UITableViewCell {
   
   private lazy var cellBackground: UIView = {
     let view = UIView()
-    view.backgroundColor = .modalBackground
+
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -86,8 +86,8 @@ private extension CashFocusProjectsCell {
   }
   
   func setupBackground() {
+
     self.contentView.addSubview(cellBackground)
-    self.contentView.backgroundColor = .modalBackground
     
     cellBackground.layer.cornerRadius = 10
     

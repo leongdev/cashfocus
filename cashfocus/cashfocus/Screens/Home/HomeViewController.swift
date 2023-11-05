@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     let tableView = UITableView()
     tableView.register(CashFocusProjectsCell.self, forCellReuseIdentifier: CashFocusProjectsCell.identifier)
     tableView.translatesAutoresizingMaskIntoConstraints = false
-    tableView.backgroundColor =  .modalBackground
+  
     return tableView
   }()
   
@@ -125,6 +125,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     projectsTableView.dataSource = self
     projectsTableView.rowHeight = 100
     projectsTableView.showsVerticalScrollIndicator = false
+    projectsTableView.backgroundColor = .clear
     
     NSLayoutConstraint.activate([
       projectsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -154,7 +155,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     cell.title.text =  viewModel.projectsList[indexPath.row].projectName
     cell.timePrice.text = "$ 00,00"
     cell.time.text = "00:00:00"
-    cell.selectionStyle = .none
+    cell.selectionStyle = .default
+    cell.backgroundColor = .clear
     return cell
   }
   
