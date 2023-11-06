@@ -5,7 +5,7 @@
 //  Created by Leon Walras Moura da Silva  on 2023-10-22.
 //
 
-import Foundation
+import UIKit
 
 enum Icons: String {
   case gearshapeFill = "gearshape.fill"

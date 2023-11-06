@@ -32,6 +32,9 @@
 		FA83DAD72AE9EB5A00FF2701 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD62AE9EB5A00FF2701 /* MainCoordinator.swift */; };
 		FA83DADB2AE9FE3E00FF2701 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DADA2AE9FE3E00FF2701 /* SettingsViewController.swift */; };
 		FA83DADD2AE9FE8100FF2701 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DADC2AE9FE8100FF2701 /* NewProjectViewController.swift */; };
+		FAA7BA172AF82E730029B22F /* BackgroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7BA162AF82E730029B22F /* BackgroundTimer.swift */; };
+		FAA7BA192AF897560029B22F /* TimeConvertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7BA182AF897560029B22F /* TimeConvertion.swift */; };
+		FAA7BA1B2AF89CE80029B22F /* Floar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7BA1A2AF89CE80029B22F /* Floar+Ext.swift */; };
 		FAB364DB2AF566930041954E /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DA2AF566930041954E /* ProjectDetailsViewController.swift */; };
 		FAB364DD2AF5702E0041954E /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DC2AF5702E0041954E /* ProjectDetailsViewModel.swift */; };
 		FAE3E79A2AE5B1D7005ECF7B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7992AE5B1D7005ECF7B /* Icons.swift */; };
@@ -39,7 +42,7 @@
 		FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */; };
 		FAE3E7A12AE5DB54005ECF7B /* CashFocusButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */; };
 		FAE3E7A32AE61BA7005ECF7B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A22AE61BA7005ECF7B /* HomeViewModel.swift */; };
-		FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A42AE62453005ECF7B /* Project.swift */; };
+		FAE3E7A52AE62453005ECF7B /* ProjectTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7A42AE62453005ECF7B /* ProjectTimer.swift */; };
 		FAE3E7AE2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7AC2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift */; };
 		FAE3E7AF2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7AD2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift */; };
 		FAE3E7B12AE63CB3005ECF7B /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7B02AE63CB3005ECF7B /* UITableView+Ext.swift */; };
@@ -100,6 +103,9 @@
 		FA83DAD62AE9EB5A00FF2701 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		FA83DADA2AE9FE3E00FF2701 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA83DADC2AE9FE8100FF2701 /* NewProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
+		FAA7BA162AF82E730029B22F /* BackgroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTimer.swift; sourceTree = "<group>"; };
+		FAA7BA182AF897560029B22F /* TimeConvertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertion.swift; sourceTree = "<group>"; };
+		FAA7BA1A2AF89CE80029B22F /* Floar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Floar+Ext.swift"; sourceTree = "<group>"; };
 		FAB364DA2AF566930041954E /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		FAB364DC2AF5702E0041954E /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
 		FAE3E7992AE5B1D7005ECF7B /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
@@ -107,7 +113,7 @@
 		FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		FAE3E7A02AE5DB54005ECF7B /* CashFocusButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CashFocusButton+Ext.swift"; sourceTree = "<group>"; };
 		FAE3E7A22AE61BA7005ECF7B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		FAE3E7A42AE62453005ECF7B /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FAE3E7A42AE62453005ECF7B /* ProjectTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTimer.swift; sourceTree = "<group>"; };
 		FAE3E7AC2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FAE3E7AD2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FAE3E7B02AE63CB3005ECF7B /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFF42BA2AEF779000491C9B /* Protocol */,
+				FAA7BA162AF82E730029B22F /* BackgroundTimer.swift */,
+				FAA7BA182AF897560029B22F /* TimeConvertion.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 				FA1FDCF72AE7688600BAEE54 /* UIView+Ext.swift */,
 				FA3181512AEED0FA0020FEEA /* UITextView+Ext.swift */,
 				FA3181532AEEE1390020FEEA /* UITextField+Ext.swift */,
+				FAA7BA1A2AF89CE80029B22F /* Floar+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,7 +350,7 @@
 		FAF2CCB92AE1E86400D2542D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAE3E7A42AE62453005ECF7B /* Project.swift */,
+				FAE3E7A42AE62453005ECF7B /* ProjectTimer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -525,15 +534,17 @@
 				FA3181522AEED0FA0020FEEA /* UITextView+Ext.swift in Sources */,
 				FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */,
 				FA1FDCF82AE7688600BAEE54 /* UIView+Ext.swift in Sources */,
-				FAE3E7A52AE62453005ECF7B /* Project.swift in Sources */,
+				FAE3E7A52AE62453005ECF7B /* ProjectTimer.swift in Sources */,
 				FAB364DD2AF5702E0041954E /* ProjectDetailsViewModel.swift in Sources */,
 				FAFF42B92AEF776E00491C9B /* DismissManager.swift in Sources */,
 				FA15C98D2AE1E38C004E1866 /* AppDelegate.swift in Sources */,
 				FAE3E79A2AE5B1D7005ECF7B /* Icons.swift in Sources */,
 				FAE3E7AF2AE62C02005ECF7B /* ProjectItem+CoreDataProperties.swift in Sources */,
 				FAE3E7A32AE61BA7005ECF7B /* HomeViewModel.swift in Sources */,
+				FAA7BA192AF897560029B22F /* TimeConvertion.swift in Sources */,
 				FA4D89022AE2420200795DA7 /* HomeViewController.swift in Sources */,
 				FA3181502AED86A90020FEEA /* CashFocusTextView.swift in Sources */,
+				FAA7BA172AF82E730029B22F /* BackgroundTimer.swift in Sources */,
 				FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */,
 				FA31814E2AED806F0020FEEA /* CashFocusLine.swift in Sources */,
 				FA83DADB2AE9FE3E00FF2701 /* SettingsViewController.swift in Sources */,
@@ -545,6 +556,7 @@
 				FAE3E79C2AE5C6DF005ECF7B /* CashFocusButton.swift in Sources */,
 				FA08F9602AE8D72C001B7AE4 /* Screens.swift in Sources */,
 				FA83DAD52AE9EAF900FF2701 /* Coordinator.swift in Sources */,
+				FAA7BA1B2AF89CE80029B22F /* Floar+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

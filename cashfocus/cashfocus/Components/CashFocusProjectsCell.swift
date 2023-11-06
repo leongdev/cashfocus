@@ -10,6 +10,7 @@ import UIKit
 class CashFocusProjectsCell: UITableViewCell {
   
   static let identifier = "ProjectsCell"
+  var subscribePlayButton: (()-> ())?
   
   lazy var line: CashFocusLine = {
     let line = CashFocusLine(backgroundColor: .systemGray6)
@@ -57,12 +58,14 @@ class CashFocusProjectsCell: UITableViewCell {
     return label
   }()
   
-  lazy var playButton: CashFocusIconButton = {
+  lazy var actionButton: CashFocusIconButton = {
     let button = CashFocusIconButton(
       iconName: Icons.playCircleFill.rawValue,
       color: .systemGreen,
       fontSize: 40
     )
+    
+    button.addTarget(self, action: #selector(onPressPlayButton), for: .touchUpInside)
     return button
   }()
 
@@ -73,6 +76,10 @@ class CashFocusProjectsCell: UITableViewCell {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  @objc func onPressPlayButton() {
+    subscribePlayButton?()
   }
 }
 
@@ -120,13 +127,13 @@ private extension CashFocusProjectsCell {
   }  
   
   func setupPlayButton() {
-    cellBackground.addSubview(playButton)
+    cellBackground.addSubview(actionButton)
     
     NSLayoutConstraint.activate([
-      playButton.bottomAnchor.constraint(equalTo: cellBackground.bottomAnchor, constant: -2),
-      playButton.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor),
-      playButton.heightAnchor.constraint(equalToConstant: 40),
-      playButton.widthAnchor.constraint(equalToConstant: 40),
+      actionButton.bottomAnchor.constraint(equalTo: cellBackground.bottomAnchor, constant: -2),
+      actionButton.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor),
+      actionButton.heightAnchor.constraint(equalToConstant: 40),
+      actionButton.widthAnchor.constraint(equalToConstant: 40),
     ])
   }
   

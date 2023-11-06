@@ -10,56 +10,78 @@ import UIKit
 class HomeViewModel {
   
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-  var projectsList: [ProjectItem]
+  var projectsCoreDataList: [ProjectItem]
+  var timerId: UIBackgroundTaskIdentifier?
+  var timerIdList: [Int] = []
   
-  init(projectsList: [ProjectItem] = []) {
-    self.projectsList = projectsList
+  init(projectsCoreDataList: [ProjectItem] = [] ) {
+    self.projectsCoreDataList = projectsCoreDataList
     getAllProjects()
   }
   
-  func getAllProjects() {
-    do {
-      let item = try context.fetch(ProjectItem.fetchRequest())
-      projectsList = item
-    } catch {
-      //error
+  func onTimeUpdate() {
+    for item in timerIdList {
+      let name  = projectsCoreDataList[item].projectName
+      let description  = projectsCoreDataList[item].projectDescription
+      let hourlyRate  = projectsCoreDataList[item].projectHourlyRate
+      let time = projectsCoreDataList[item].projectTime + 1
+      
+      updateProjectItem(
+        item: projectsCoreDataList[item],
+        name: name ?? "",
+        description: description ?? "",
+        hourlyRate: hourlyRate,
+        time: time
+      )
     }
   }
   
-  func createProjectItem(name: String, description: String, hourlyRate: Float) {
-    let newItem = ProjectItem(context: context)
-    newItem.projectName = name
-    newItem.projectDescription = description
-    newItem.projectHourlyRate = hourlyRate
-    newItem.projectTime = 0.0
-    newItem.projectCreatedAt = Date()
+  func calculateTime(time: Float) -> String {
+    let (h, m, s) = secondsToHoursMinutesSeconds(Int(time))
     
-    do {
-      try context.save()
-    } catch {
-      print("Error creating")
-    }
-  }
-  
-  func deleteProjectItem(item: ProjectItem) {
-    context.delete(item)
+    let seconds = s < 10 ? "0\(s)" : "\(s)"
+    let min = m < 10 ? "0\(m)" : "\(m)"
+    let hours = h < 10 ? "0\(h)" : "\(h)"
     
-    do {
-      try context.save()
-    } catch {
-      print("Error deleting")
-    }
+    return "\(hours):\(min):\(seconds)"
   }
   
-  func updateProjectItem(item: ProjectItem, name: String, description: String, hourlyRate: Float) {
+  func calculateMoney(time: Float, hourlyRate: Float) -> String {
+    let hours = time / 3600
+    return "$ \( Float(hours * hourlyRate).rounded(toPlaces: 2))"
+  }
+  
+  func updateProjectItem(item: ProjectItem, name: String, description: String, hourlyRate: Float, time: Float) {
     item.projectName = name
     item.projectDescription = description
     item.projectHourlyRate = hourlyRate
+    item.projectTime = time
     
     do {
       try context.save()
     } catch {
       print("Error editing")
+    }
+  }
+  
+  func getAllProjects() {
+    do {
+      let item = try context.fetch(ProjectItem.fetchRequest())
+      projectsCoreDataList = item
+    } catch {
+      //error
+    }
+  }
+  
+  func deleteProjectItem(item: ProjectItem, index: Int) {
+    context.delete(item)
+    timerIdList = timerIdList.filter { $0 != index}
+    
+    do {
+      try context.save()
+     
+    } catch {
+      print("Error deleting")
     }
   }
 }
