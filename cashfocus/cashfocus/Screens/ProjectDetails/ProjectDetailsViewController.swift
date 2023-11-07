@@ -8,7 +8,7 @@
 import UIKit
 
 class ProjectDetailsViewController: UIViewController {
-
+  
   var projectIndex: Int = 0
   
   weak var coordinator: MainCoordinator?
@@ -21,7 +21,21 @@ class ProjectDetailsViewController: UIViewController {
       fontSize: 20
     )
     
-    button.addTarget(self, action: #selector(onPressMenu), for: .touchUpInside)
+    let edit = UIAction(title: "Edit Name", image:  UIImage(systemName: Icons.pencil.rawValue)) { _ in
+      
+    }
+    
+    let delete = UIAction(title: "Delete Project", image: UIImage(systemName: Icons.trash.rawValue), attributes: .destructive) { _ in
+      
+    }
+    
+    let menu = UIMenu(children: [ edit, delete])
+
+    delete.image?.withTintColor(.systemGreen)
+    
+    button.menu = menu
+    button.showsMenuAsPrimaryAction = true
+    
     return button
   }()
   
@@ -42,9 +56,6 @@ class ProjectDetailsViewController: UIViewController {
     viewModel.getAllProjects()
   }
   
-  @objc func onPressMenu() {
-      print("Presse Menu")
-  }
 }
 
 extension ProjectDetailsViewController {

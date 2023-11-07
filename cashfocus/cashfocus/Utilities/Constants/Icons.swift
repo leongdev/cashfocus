@@ -16,4 +16,6 @@ enum Icons: String {
   case playCircleFill = "play.circle.fill"
   case pauseCircleFill = "pause.circle.fill"
   case xmarkCircleFill = "xmark.circle.fill"
+  case trash = "trash"
+  case pencil = "pencil"
 }
