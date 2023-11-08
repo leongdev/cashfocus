@@ -64,7 +64,6 @@ class HomeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool){
     viewModel.getAllProjects()
-    projectsTableView.reloadData()
     navigationController?.setNavigationBarHidden(false, animated: true)
     navigationController?.navigationBar.prefersLargeTitles = true
   }
@@ -88,18 +87,20 @@ class HomeViewController: UIViewController {
       self.viewModel.onTimeUpdate()
       
       self.projectsTableView.visibleCells.forEach { cell in
-        let index = self.projectsTableView.visibleCells.firstIndex(of: cell) ?? 0
         
+        
+        guard let index = self.projectsTableView.indexPath(for: cell) else {
+          fatalError("Couldnt find index path")
+        }
         
         if let cell = cell as? CashFocusProjectsCell {
-          if self.viewModel.timerIdList.contains(index) {
+          if self.viewModel.timerIdList.contains(index.row) {
             cell.actionButton.setImage(self.pauseButton, for: .normal)
           } else {
             cell.actionButton.setImage(self.playButton, for: .normal)
           }
           
-          cell.timePrice.text = self.viewModel.calculateMoney(time: self.viewModel.projectsCoreDataList[index].projectTime, hourlyRate: self.viewModel.projectsCoreDataList[index].projectHourlyRate)
-          cell.time.text = self.viewModel.calculateTime(time: self.viewModel.projectsCoreDataList[index].projectTime)
+          cell.setupTimeMoney(item: self.viewModel.projectsCoreDataList[index.row])
         }
       }
     }
@@ -108,6 +109,7 @@ class HomeViewController: UIViewController {
   }
   
   func onSelectItem(itemIndex: Int) {
+    
     coordinator?.onPressProjectDetails(projectIndex: itemIndex)
   }
 }
@@ -180,12 +182,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
     guard let cell = tableView.dequeueReusableCell(withIdentifier: CashFocusProjectsCell.identifier, for: indexPath) as? CashFocusProjectsCell else {
-      fatalError("The table view could not dequeue a CustomCell in ViewController")
+      return UITableViewCell()
     }
+    
     cell.title.text =  viewModel.projectsCoreDataList[indexPath.row].projectName
-    cell.timePrice.text = viewModel.calculateMoney(time: viewModel.projectsCoreDataList[indexPath.row].projectTime, hourlyRate: viewModel.projectsCoreDataList[indexPath.row].projectHourlyRate)
-    cell.time.text = viewModel.calculateTime(time: viewModel.projectsCoreDataList[indexPath.row].projectTime)
+    cell.setupTimeMoney(item: viewModel.projectsCoreDataList[indexPath.row])
     cell.selectionStyle = .default
     cell.backgroundColor = .clear
 
@@ -206,8 +209,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
         viewModel.deleteProjectItem(item: viewModel.projectsCoreDataList[indexPath.row], index: indexPath.row)
-        viewModel.getAllProjects() 
-        tableView.reloadData()
+        viewModel.getAllProjects()
       } else if editingStyle == .insert {
           // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
       }

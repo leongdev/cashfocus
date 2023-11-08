@@ -78,6 +78,26 @@ class CashFocusProjectsCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
+  func setupTimeMoney(item: ProjectItem) {
+    time.text = calculateTime(time: item.projectTime)
+    timePrice.text = calculateMoney(time: item.projectTime, hourlyRate: item.projectHourlyRate)
+  }
+  
+  func calculateTime(time: Float) -> String {
+    let (h, m, s) = secondsToHoursMinutesSeconds(Int(time))
+    
+    let seconds = s < 10 ? "0\(s)" : "\(s)"
+    let min = m < 10 ? "0\(m)" : "\(m)"
+    let hours = h < 10 ? "0\(h)" : "\(h)"
+    
+    return "\(hours):\(min):\(seconds)"
+  }
+  
+  func calculateMoney(time: Float, hourlyRate: Float) -> String {
+    let hours = time / 3600
+    return "$ \( Float(hours * hourlyRate).rounded(toPlaces: 2))"
+  }
+  
   @objc func onPressPlayButton() {
     subscribePlayButton?()
   }
