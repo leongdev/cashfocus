@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
   private let spacing:CGFloat = 20
   
   lazy var timer = BackgroundTimer(delegate: nil)
-
+  
   private lazy var settingsButton: CashFocusIconButton = {
     let button =   CashFocusIconButton(
       iconName: Icons.gearshapeFill.rawValue,
@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     let tableView = UITableView()
     tableView.register(CashFocusProjectsCell.self, forCellReuseIdentifier: CashFocusProjectsCell.identifier)
     tableView.translatesAutoresizingMaskIntoConstraints = false
-  
+    
     return tableView
   }()
   
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
   private let emptyView = EmptyProjectsView()
   
   // MARK: - Life Cycle
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
@@ -135,7 +135,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     navigationItem.largeTitleDisplayMode = .automatic
     navigationController?.navigationBar.sizeToFit()
   }
-    
+  
   func setupAddProjectButton() {
     view.addSubview(addProjectButton)
     
@@ -150,7 +150,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     ])
   }
   
-
+  
   func setupTableView() {
     view.addSubview(projectsTableView)
     
@@ -167,7 +167,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
       projectsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
     ])
   }
-
+  
   // MARK: - Delegates
   
   func updateSearchResults(for searchController: UISearchController) {
@@ -196,7 +196,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     cell.setupTimeMoney(item: viewModel.getProjectsList()[indexPath.row])
     cell.selectionStyle = .default
     cell.backgroundColor = .clear
-
+    
     cell.subscribePlayButton = { [unowned self] in
       if viewModel.timerIdList.contains(indexPath.row) {
         viewModel.timerIdList = viewModel.timerIdList.filter { $0 !=  indexPath.row}
@@ -212,11 +212,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-        viewModel.deleteProjectItem(item: viewModel.getProjectsList()[indexPath.row], index: indexPath.row)
-        viewModel.getAllProjects()
-      } else if editingStyle == .insert {
-          // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-      }
+    if editingStyle == .delete {
+      viewModel.deleteProjectItem(item: viewModel.getProjectsList()[indexPath.row], index: indexPath.row)
+      viewModel.getAllProjects()
+    } else if editingStyle == .insert {
+      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
   }
 }
