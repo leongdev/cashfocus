@@ -87,8 +87,11 @@ class HomeViewController: UIViewController {
       
       self.viewModel.onTimeUpdate()
       
+      if(!self.viewModel.searchText.isEmpty) {
+        return
+      }
+      
       self.projectsTableView.visibleCells.forEach { cell in
-        
         
         guard let index = self.projectsTableView.indexPath(for: cell) else {
           fatalError("Couldnt find index path")
@@ -101,7 +104,7 @@ class HomeViewController: UIViewController {
             cell.actionButton.setImage(self.playButton, for: .normal)
           }
           
-          cell.setupTimeMoney(item: self.viewModel.getProjectsList()[index.row])
+          cell.setupTimeMoney(item: self.viewModel.getProjectListFilered()[index.row])
         }
       }
     }
@@ -150,7 +153,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     ])
   }
   
-  
   func setupTableView() {
     view.addSubview(projectsTableView)
     
@@ -173,17 +175,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
   func updateSearchResults(for searchController: UISearchController) {
     guard let text = searchController.searchBar.text else { return }
     viewModel.searchText = text
+    projectsTableView.reloadData()
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    if viewModel.getProjectsList().count == 0 {
+    if viewModel.getProjectListFilered().count == 0 {
       projectsTableView.onProjectListIsEmpty()
     } else {
       projectsTableView.onRestore()
     }
     
-    return viewModel.getProjectsList().count
+    return viewModel.getProjectListFilered().count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -192,8 +195,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
       return UITableViewCell()
     }
     
-    cell.title.text =  viewModel.getProjectsList()[indexPath.row].projectName
-    cell.setupTimeMoney(item: viewModel.getProjectsList()[indexPath.row])
+    cell.title.text =  viewModel.getProjectListFilered()[indexPath.row].projectName
+    cell.setupTimeMoney(item: viewModel.getProjectListFilered()[indexPath.row])
     cell.selectionStyle = .default
     cell.backgroundColor = .clear
     
@@ -213,7 +216,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      viewModel.deleteProjectItem(item: viewModel.getProjectsList()[indexPath.row], index: indexPath.row)
+      viewModel.deleteProjectItem(item: viewModel.getProjectListFilered()[indexPath.row], index: indexPath.row)
       viewModel.getAllProjects()
     } else if editingStyle == .insert {
       // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

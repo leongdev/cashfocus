@@ -20,8 +20,19 @@ class HomeViewModel {
     getAllProjects()
   }
   
-  func getProjectsList() -> [ProjectItem] {
-    return projectsCoreDataList
+  func getProjectListFilered() -> [ProjectItem] {
+    
+    let filteredList = projectsCoreDataList.filter {
+      
+      if(searchText.isEmpty) {return true}
+      
+      guard let name = $0.projectName else {
+        return false
+      }
+      return name.lowercased().contains(searchText.lowercased())
+    }
+    
+    return  filteredList
   }
   
   func onTimeUpdate() {
