@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
     return button
   }()
   
-
   private lazy var addProjectButton = CashFocusButton(
     iconName: Icons.plus.rawValue,
     label: "Add New Project",
@@ -49,6 +48,7 @@ class HomeViewController: UIViewController {
   
   lazy var seartchBar: UISearchController = {
     let search = UISearchController()
+    search.searchResultsUpdater = self
     return search
   }()
   
@@ -84,6 +84,7 @@ class HomeViewController: UIViewController {
   
   func initTimer() {
     let timerId = timer.executeAfterDelay(delay: 1, repeating: true) {
+      
       self.viewModel.onTimeUpdate()
       
       self.projectsTableView.visibleCells.forEach { cell in
@@ -100,7 +101,7 @@ class HomeViewController: UIViewController {
             cell.actionButton.setImage(self.playButton, for: .normal)
           }
           
-          cell.setupTimeMoney(item: self.viewModel.projectsCoreDataList[index.row])
+          cell.setupTimeMoney(item: self.viewModel.getProjectsList()[index.row])
         }
       }
     }
@@ -109,14 +110,13 @@ class HomeViewController: UIViewController {
   }
   
   func onSelectItem(itemIndex: Int) {
-    
     coordinator?.onPressProjectDetails(projectIndex: itemIndex)
   }
 }
 
 
 // MARK: - Constraints
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
   
   func setup() {
     setupView()
@@ -135,7 +135,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     navigationItem.largeTitleDisplayMode = .automatic
     navigationController?.navigationBar.sizeToFit()
   }
-  
+    
   func setupAddProjectButton() {
     view.addSubview(addProjectButton)
     
@@ -170,15 +170,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
   // MARK: - Delegates
   
+  func updateSearchResults(for searchController: UISearchController) {
+    guard let text = searchController.searchBar.text else { return }
+    viewModel.searchText = text
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    if viewModel.projectsCoreDataList.count == 0 {
+    if viewModel.getProjectsList().count == 0 {
       projectsTableView.onProjectListIsEmpty()
     } else {
       projectsTableView.onRestore()
     }
     
-    return viewModel.projectsCoreDataList.count
+    return viewModel.getProjectsList().count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -187,8 +192,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
       return UITableViewCell()
     }
     
-    cell.title.text =  viewModel.projectsCoreDataList[indexPath.row].projectName
-    cell.setupTimeMoney(item: viewModel.projectsCoreDataList[indexPath.row])
+    cell.title.text =  viewModel.getProjectsList()[indexPath.row].projectName
+    cell.setupTimeMoney(item: viewModel.getProjectsList()[indexPath.row])
     cell.selectionStyle = .default
     cell.backgroundColor = .clear
 
@@ -208,7 +213,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
-        viewModel.deleteProjectItem(item: viewModel.projectsCoreDataList[indexPath.row], index: indexPath.row)
+        viewModel.deleteProjectItem(item: viewModel.getProjectsList()[indexPath.row], index: indexPath.row)
         viewModel.getAllProjects()
       } else if editingStyle == .insert {
           // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

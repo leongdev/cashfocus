@@ -13,10 +13,15 @@ class HomeViewModel {
   var projectsCoreDataList: [ProjectItem]
   var timerId: UIBackgroundTaskIdentifier?
   var timerIdList: [Int] = []
+  var searchText:String = ""
   
   init(projectsCoreDataList: [ProjectItem] = [] ) {
     self.projectsCoreDataList = projectsCoreDataList
     getAllProjects()
+  }
+  
+  func getProjectsList() -> [ProjectItem] {
+    return projectsCoreDataList
   }
   
   func onTimeUpdate() {
@@ -35,7 +40,6 @@ class HomeViewModel {
       )
     }
   }
-  
   
   func updateProjectItem(item: ProjectItem, name: String, description: String, hourlyRate: Float, time: Float) {
     item.projectName = name
