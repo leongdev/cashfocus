@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
     viewModel.getAllProjects()
     navigationController?.setNavigationBarHidden(false, animated: true)
     navigationController?.navigationBar.prefersLargeTitles = true
+    deselectAll()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -110,6 +111,18 @@ class HomeViewController: UIViewController {
     }
     
     self.viewModel.timerId = timerId
+  }
+  
+  func deselectAll() {
+    projectsTableView.visibleCells.forEach { cell in
+      
+      guard let index = self.projectsTableView.indexPath(for: cell) else {
+        fatalError("Couldnt find index path")
+      }
+      
+      projectsTableView.deselectRow(at: index, animated: true)
+      
+    }
   }
   
   func onSelectItem(itemIndex: Int) {
