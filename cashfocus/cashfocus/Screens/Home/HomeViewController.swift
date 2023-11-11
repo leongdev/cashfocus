@@ -9,15 +9,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
-  let playButton = UIImage(systemName: Icons.playCircleFill.rawValue,withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 40)))
-  let pauseButton = UIImage(systemName: Icons.pauseCircleFill.rawValue,withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 40)))
+  let playButton = UIImage(systemName: Icons.playCircleFill.rawValue,withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 40))) ?? UIImage(resource: .pig)
+  let pauseButton = UIImage(systemName: Icons.pauseCircleFill.rawValue,withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 40))) ?? UIImage(resource: .pig)
   
   weak var coordinator: MainCoordinator?
   private let viewModel = HomeViewModel()
-  
-  private let spacing:CGFloat = 20
-  
-  lazy var timer = BackgroundTimer(delegate: nil)
+
   
   private lazy var settingsButton: CashFocusIconButton = {
     let button =   CashFocusIconButton(
@@ -59,7 +56,6 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    initTimer()
   }
   
   override func viewWillAppear(_ animated: Bool){
@@ -81,36 +77,6 @@ class HomeViewController: UIViewController {
   
   @objc func onPressSettings() {
     coordinator?.onPressSettigs()
-  }
-  
-  func initTimer() {
-    let timerId = timer.executeAfterDelay(delay: 1, repeating: true) {
-      
-      self.viewModel.onTimeUpdate()
-      
-      if(!self.viewModel.searchText.isEmpty) {
-        return
-      }
-      
-      self.projectsTableView.visibleCells.forEach { cell in
-        
-        guard let index = self.projectsTableView.indexPath(for: cell) else {
-          fatalError("Couldnt find index path")
-        }
-        
-        if let cell = cell as? CashFocusProjectsCell {
-          if self.viewModel.timerIdList.contains(index.row) {
-            cell.actionButton.setImage(self.pauseButton, for: .normal)
-          } else {
-            cell.actionButton.setImage(self.playButton, for: .normal)
-          }
-          
-          cell.setupTimeMoney(item: self.viewModel.getProjectListFilered()[index.row])
-        }
-      }
-    }
-    
-    self.viewModel.timerId = timerId
   }
   
   func deselectAll() {
@@ -159,8 +125,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     addProjectButton.addTarget(self, action: #selector(onPressAddNewProject), for: .touchUpInside)
     
     NSLayoutConstraint.activate([
-      addProjectButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: spacing),
-      addProjectButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -spacing),
+      addProjectButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      addProjectButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       addProjectButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
       addProjectButton.heightAnchor.constraint(equalToConstant: 53)
     ])
@@ -214,11 +180,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     cell.backgroundColor = .clear
     
     cell.subscribePlayButton = { [unowned self] in
-      if viewModel.timerIdList.contains(indexPath.row) {
-        viewModel.timerIdList = viewModel.timerIdList.filter { $0 !=  indexPath.row}
-      } else {
-        viewModel.timerIdList.append(indexPath.row)
-      }
+      onPressPlayIntem(index: indexPath.row)
     }
     return cell
   }

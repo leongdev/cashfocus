@@ -8,16 +8,64 @@
 import UIKit
 
 class HomeViewModel {
-  
+
+  lazy var timer = BackgroundTimer(delegate: nil)
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   var projectsCoreDataList: [ProjectItem]
   var timerId: UIBackgroundTaskIdentifier?
   var timerIdList: [Int] = []
   var searchText:String = ""
-  
+  var timerIsOn: Bool = false
+
   init(projectsCoreDataList: [ProjectItem] = [] ) {
     self.projectsCoreDataList = projectsCoreDataList
     getAllProjects()
+  }
+  
+  func onPressPlayIntem(index: Int, projectsTableView: UITableView, pauseButtonImage: UIImage, playButtonImage: UIImage) {
+    
+    if(self.projectsCoreDataList.isEmpty) {
+      self.initTimer(projectsTableView: projectsTableView, pauseButtonImage: pauseButtonImage, playButtonImage: playButtonImage)
+    }
+    
+    if self.timerIdList.contains(index) {
+      self.timerIdList = self.timerIdList.filter { $0 != index}
+    } else {
+      self.timerIdList.append(index)
+    }
+    
+    if (!self.projectsCoreDataList.isEmpty) {
+      
+    }
+  }
+  
+  func initTimer(projectsTableView: UITableView, pauseButtonImage: UIImage, playButtonImage: UIImage) {
+    let timerId = timer.executeAfterDelay(delay: 1, repeating: true) {
+      
+      self.onTimeUpdate()
+      
+      if(!self.searchText.isEmpty) {
+        return
+      }
+      
+      projectsTableView.visibleCells.forEach { cell in
+        
+        guard let index = projectsTableView.indexPath(for: cell) else {
+          fatalError("Couldnt find index path")
+        }
+        
+        if let cell = cell as? CashFocusProjectsCell {
+          if self.timerIdList.contains(index.row) {
+            cell.actionButton.setImage(pauseButtonImage, for: .normal)
+          } else {
+            cell.actionButton.setImage(playButtonImage, for: .normal)
+          }
+          cell.setupTimeMoney(item: self.getProjectListFilered()[index.row])
+        }
+      }
+    }
+    
+    self.timerId = timerId
   }
   
   func getProjectListFilered() -> [ProjectItem] {
@@ -80,7 +128,6 @@ class HomeViewModel {
     
     do {
       try context.save()
-     
     } catch {
       print("Error deleting")
     }
