@@ -15,18 +15,6 @@ class HomeViewController: UIViewController {
   weak var coordinator: MainCoordinator?
   private let viewModel = HomeViewModel()
 
-  
-  private lazy var settingsButton: CashFocusIconButton = {
-    let button =   CashFocusIconButton(
-      iconName: Icons.gearshapeFill.rawValue,
-      color: .systemGreen,
-      fontSize: 20
-    )
-    
-    button.addTarget(self, action: #selector(onPressSettings), for: .touchUpInside)
-    return button
-  }()
-  
   private lazy var addProjectButton = CashFocusButton(
     iconName: Icons.plus.rawValue,
     label: "Add New Project",
@@ -75,10 +63,6 @@ class HomeViewController: UIViewController {
     coordinator?.onPressNewProject()
   }
   
-  @objc func onPressSettings() {
-    coordinator?.onPressSettigs()
-  }
-  
   func deselectAll() {
     projectsTableView.visibleCells.forEach { cell in
       
@@ -89,10 +73,6 @@ class HomeViewController: UIViewController {
       projectsTableView.deselectRow(at: index, animated: true)
       
     }
-  }
-  
-  func onSelectItem(itemIndex: Int) {
-    coordinator?.onPressProjectDetails(projectIndex: itemIndex)
   }
 }
 
@@ -111,7 +91,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     projectsTableView.contentInsetAdjustmentBehavior = .never
     
     navigationItem.title = "Hello! 🤑"
-    navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
     navigationItem.searchController = seartchBar
     
     navigationItem.largeTitleDisplayMode = .automatic
@@ -180,13 +159,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     cell.backgroundColor = .clear
     
     cell.subscribePlayButton = { [unowned self] in
-      onPressPlayIntem(index: indexPath.row)
+      viewModel.onPressPlayIntem(
+        index: indexPath.row,
+        projectsTableView: self.projectsTableView,
+        pauseButtonImage: self.pauseButton,
+        playButtonImage: self.playButton
+      )
     }
+    
     return cell
-  }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    onSelectItem(itemIndex: indexPath.row)
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

@@ -31,25 +31,4 @@ class MainCoordinator: Coordinator {
     nav.present(navigation, animated: true)
   }
   
-  func onPressAccount() {
-    let vc = AccountViewController()
-    vc.coordinator = self
-    
-    let navigation = UINavigationController(rootViewController: vc)
-    navigation.modalPresentationStyle = .formSheet
-    nav.present(navigation, animated: true)
-  }
-  
-  func onPressSettigs() {
-    let vc = SettingsViewController()
-    vc.coordinator = self
-    nav.pushViewController(vc, animated: true)
-  }
-  
-  func onPressProjectDetails(projectIndex: Int) {
-    let vc = ProjectDetailsViewController()
-    vc.coordinator = self
-    vc.projectIndex = projectIndex
-    nav.pushViewController(vc, animated: true)
-  }
 }

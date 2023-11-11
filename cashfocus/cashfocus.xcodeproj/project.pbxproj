@@ -16,7 +16,6 @@
 		FA15C9A72AE1E38D004E1866 /* cashfocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9A62AE1E38D004E1866 /* cashfocusTests.swift */; };
 		FA15C9B12AE1E38D004E1866 /* cashfocusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9B02AE1E38D004E1866 /* cashfocusUITests.swift */; };
 		FA15C9B32AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15C9B22AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift */; };
-		FA1A8BE12AEB129A00CBB7C3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A8BE02AEB129A00CBB7C3 /* AccountViewController.swift */; };
 		FA1FDCF82AE7688600BAEE54 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FDCF72AE7688600BAEE54 /* UIView+Ext.swift */; };
 		FA25B80F2AE4E699001307E8 /* CashFocusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B80E2AE4E699001307E8 /* CashFocusLabel.swift */; };
 		FA25B8112AE4EA3F001307E8 /* CashFocusIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */; };
@@ -30,13 +29,10 @@
 		FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */; };
 		FA83DAD52AE9EAF900FF2701 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */; };
 		FA83DAD72AE9EB5A00FF2701 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DAD62AE9EB5A00FF2701 /* MainCoordinator.swift */; };
-		FA83DADB2AE9FE3E00FF2701 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DADA2AE9FE3E00FF2701 /* SettingsViewController.swift */; };
 		FA83DADD2AE9FE8100FF2701 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83DADC2AE9FE8100FF2701 /* NewProjectViewController.swift */; };
 		FAA7BA172AF82E730029B22F /* BackgroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7BA162AF82E730029B22F /* BackgroundTimer.swift */; };
 		FAA7BA192AF897560029B22F /* TimeConvertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7BA182AF897560029B22F /* TimeConvertion.swift */; };
 		FAA7BA1B2AF89CE80029B22F /* Floar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7BA1A2AF89CE80029B22F /* Floar+Ext.swift */; };
-		FAB364DB2AF566930041954E /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DA2AF566930041954E /* ProjectDetailsViewController.swift */; };
-		FAB364DD2AF5702E0041954E /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DC2AF5702E0041954E /* ProjectDetailsViewModel.swift */; };
 		FAE3E79A2AE5B1D7005ECF7B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7992AE5B1D7005ECF7B /* Icons.swift */; };
 		FAE3E79C2AE5C6DF005ECF7B /* CashFocusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */; };
 		FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */; };
@@ -87,7 +83,6 @@
 		FA15C9AC2AE1E38D004E1866 /* cashfocusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cashfocusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA15C9B02AE1E38D004E1866 /* cashfocusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cashfocusUITests.swift; sourceTree = "<group>"; };
 		FA15C9B22AE1E38D004E1866 /* cashfocusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cashfocusUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FA1A8BE02AEB129A00CBB7C3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FA1FDCF72AE7688600BAEE54 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		FA25B80E2AE4E699001307E8 /* CashFocusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusLabel.swift; sourceTree = "<group>"; };
 		FA25B8102AE4EA3F001307E8 /* CashFocusIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusIconButton.swift; sourceTree = "<group>"; };
@@ -101,13 +96,10 @@
 		FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		FA83DAD42AE9EAF900FF2701 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FA83DAD62AE9EB5A00FF2701 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		FA83DADA2AE9FE3E00FF2701 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA83DADC2AE9FE8100FF2701 /* NewProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
 		FAA7BA162AF82E730029B22F /* BackgroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTimer.swift; sourceTree = "<group>"; };
 		FAA7BA182AF897560029B22F /* TimeConvertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertion.swift; sourceTree = "<group>"; };
 		FAA7BA1A2AF89CE80029B22F /* Floar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Floar+Ext.swift"; sourceTree = "<group>"; };
-		FAB364DA2AF566930041954E /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
-		FAB364DC2AF5702E0041954E /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
 		FAE3E7992AE5B1D7005ECF7B /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		FAE3E79B2AE5C6DF005ECF7B /* CashFocusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFocusButton.swift; sourceTree = "<group>"; };
 		FAE3E79E2AE5CE5C005ECF7B /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -214,14 +206,6 @@
 			path = cashfocusUITests;
 			sourceTree = "<group>";
 		};
-		FA1A8BDF2AEB128A00CBB7C3 /* Account */ = {
-			isa = PBXGroup;
-			children = (
-				FA1A8BE02AEB129A00CBB7C3 /* AccountViewController.swift */,
-			);
-			path = Account;
-			sourceTree = "<group>";
-		};
 		FA25B80D2AE4E63D001307E8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,23 +246,6 @@
 				FA7CCCB02AEB7D640073ABF1 /* NewProjectViewModel.swift */,
 			);
 			path = NewProject;
-			sourceTree = "<group>";
-		};
-		FA83DAD92AE9FE2700FF2701 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				FA83DADA2AE9FE3E00FF2701 /* SettingsViewController.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		FAB364D92AF566620041954E /* ProjectDetails */ = {
-			isa = PBXGroup;
-			children = (
-				FAB364DA2AF566930041954E /* ProjectDetailsViewController.swift */,
-				FAB364DC2AF5702E0041954E /* ProjectDetailsViewModel.swift */,
-			);
-			path = ProjectDetails;
 			sourceTree = "<group>";
 		};
 		FAE3E79D2AE5CE47005ECF7B /* Extensions */ = {
@@ -338,9 +305,6 @@
 		FAF2CCB82AE1E85A00D2542D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				FAB364D92AF566620041954E /* ProjectDetails */,
-				FA1A8BDF2AEB128A00CBB7C3 /* Account */,
-				FA83DAD92AE9FE2700FF2701 /* Settings */,
 				FA83DAD82AE9FE1E00FF2701 /* NewProject */,
 				FA4D89002AE241D200795DA7 /* Home */,
 			);
@@ -522,11 +486,9 @@
 			files = (
 				FAE3E7A12AE5DB54005ECF7B /* CashFocusButton+Ext.swift in Sources */,
 				FA3181542AEEE1390020FEEA /* UITextField+Ext.swift in Sources */,
-				FA1A8BE12AEB129A00CBB7C3 /* AccountViewController.swift in Sources */,
 				FA83DADD2AE9FE8100FF2701 /* NewProjectViewController.swift in Sources */,
 				FA15C9972AE1E38C004E1866 /* cashfocus.xcdatamodeld in Sources */,
 				FA25B80F2AE4E699001307E8 /* CashFocusLabel.swift in Sources */,
-				FAB364DB2AF566930041954E /* ProjectDetailsViewController.swift in Sources */,
 				FA25B8112AE4EA3F001307E8 /* CashFocusIconButton.swift in Sources */,
 				FAE3E7AE2AE62C02005ECF7B /* ProjectItem+CoreDataClass.swift in Sources */,
 				FA83DAD72AE9EB5A00FF2701 /* MainCoordinator.swift in Sources */,
@@ -535,7 +497,6 @@
 				FA7CCCB12AEB7D640073ABF1 /* NewProjectViewModel.swift in Sources */,
 				FA1FDCF82AE7688600BAEE54 /* UIView+Ext.swift in Sources */,
 				FAE3E7A52AE62453005ECF7B /* ProjectTimer.swift in Sources */,
-				FAB364DD2AF5702E0041954E /* ProjectDetailsViewModel.swift in Sources */,
 				FAFF42B92AEF776E00491C9B /* DismissManager.swift in Sources */,
 				FA15C98D2AE1E38C004E1866 /* AppDelegate.swift in Sources */,
 				FAE3E79A2AE5B1D7005ECF7B /* Icons.swift in Sources */,
@@ -547,7 +508,6 @@
 				FAA7BA172AF82E730029B22F /* BackgroundTimer.swift in Sources */,
 				FAE3E79F2AE5CE5C005ECF7B /* UIColor+Ext.swift in Sources */,
 				FA31814E2AED806F0020FEEA /* CashFocusLine.swift in Sources */,
-				FA83DADB2AE9FE3E00FF2701 /* SettingsViewController.swift in Sources */,
 				FAE3E7B32AE6407C005ECF7B /* EmptyProjectsView.swift in Sources */,
 				FA34DCD42AF209410082198B /* CashFocusProjectsCell.swift in Sources */,
 				FAE3E7B12AE63CB3005ECF7B /* UITableView+Ext.swift in Sources */,

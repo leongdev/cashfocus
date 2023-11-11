@@ -10,7 +10,7 @@ import UIKit
 class EmptyProjectsView: UIView {
   
   private lazy var title = CashFocusLabel(
-    text: "You don't have any \n projects yet!",
+    text: "Project list is empty!",
     textAlignment: .left,
     font: Fonts.bold.rawValue,
     size:33
