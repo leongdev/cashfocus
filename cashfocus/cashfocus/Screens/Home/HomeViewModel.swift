@@ -24,24 +24,29 @@ class HomeViewModel {
   
   func onPressPlayIntem(index: Int, projectsTableView: UITableView, pauseButtonImage: UIImage, playButtonImage: UIImage) {
     
-    if(self.projectsCoreDataList.isEmpty) {
-      self.initTimer(projectsTableView: projectsTableView, pauseButtonImage: pauseButtonImage, playButtonImage: playButtonImage)
-    }
-    
     if self.timerIdList.contains(index) {
       self.timerIdList = self.timerIdList.filter { $0 != index}
     } else {
       self.timerIdList.append(index)
     }
     
-    if (!self.projectsCoreDataList.isEmpty) {
-      
+    if(timerIdList.isEmpty) {
+      stopTimer()
+      projectsTableView.visibleCells.forEach { cell in
+        if let cell = cell as? CashFocusProjectsCell {
+          cell.actionButton.setImage(playButtonImage, for: .normal)
+        }
+      }
+      timerIsOn = false
+    } else if(!timerIsOn) {
+      timerIsOn = true
+      self.initTimer(projectsTableView: projectsTableView, pauseButtonImage: pauseButtonImage, playButtonImage: playButtonImage)
     }
   }
   
   func initTimer(projectsTableView: UITableView, pauseButtonImage: UIImage, playButtonImage: UIImage) {
     let timerId = timer.executeAfterDelay(delay: 1, repeating: true) {
-      
+      print("AOBAH")
       self.onTimeUpdate()
       
       if(!self.searchText.isEmpty) {
@@ -66,6 +71,13 @@ class HomeViewModel {
     }
     
     self.timerId = timerId
+  }
+  
+  func stopTimer() {
+    guard let timerIdRaw = timerId?.rawValue else {
+      fatalError("Error getting timer id")
+    }
+    self.timer.cancelExecution(tasks: [UIBackgroundTaskIdentifier(rawValue: timerIdRaw)])
   }
   
   func getProjectListFilered() -> [ProjectItem] {

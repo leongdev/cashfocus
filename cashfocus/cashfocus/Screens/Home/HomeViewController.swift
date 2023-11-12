@@ -43,6 +43,8 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let notificationCenter = NotificationCenter.default
+    notificationCenter.addObserver(self, selector: #selector(onAppGoesToBackground), name: UIApplication.willTerminateNotification, object: nil)
     setup()
   }
   
@@ -50,7 +52,7 @@ class HomeViewController: UIViewController {
     viewModel.getAllProjects()
     navigationController?.setNavigationBarHidden(false, animated: true)
     navigationController?.navigationBar.prefersLargeTitles = true
-    deselectAll()
+    projectsTableView.reloadData()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -61,21 +63,12 @@ class HomeViewController: UIViewController {
   
   @objc func onPressAddNewProject() {
     coordinator?.onPressNewProject()
-  }
+  }  
   
-  func deselectAll() {
-    projectsTableView.visibleCells.forEach { cell in
-      
-      guard let index = self.projectsTableView.indexPath(for: cell) else {
-        fatalError("Couldnt find index path")
-      }
-      
-      projectsTableView.deselectRow(at: index, animated: true)
-      
-    }
+  @objc func onAppGoesToBackground() {
+    viewModel.stopTimer()
   }
 }
-
 
 // MARK: - Constraints
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
@@ -155,7 +148,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     
     cell.title.text =  viewModel.getProjectListFilered()[indexPath.row].projectName
     cell.setupTimeMoney(item: viewModel.getProjectListFilered()[indexPath.row])
-    cell.selectionStyle = .default
+    cell.selectionStyle = .none
     cell.backgroundColor = .clear
     
     cell.subscribePlayButton = { [unowned self] in
@@ -174,6 +167,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UISear
     if editingStyle == .delete {
       viewModel.deleteProjectItem(item: viewModel.getProjectListFilered()[indexPath.row], index: indexPath.row)
       viewModel.getAllProjects()
+      projectsTableView.reloadData()
     } else if editingStyle == .insert {
       // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
